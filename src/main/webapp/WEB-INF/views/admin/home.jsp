@@ -117,7 +117,7 @@
 											<div
 												class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 												Tổng Thu</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">180$</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">1800$</div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
