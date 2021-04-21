@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorators">
+
+	
+    <decorator name="trang-chu" page="web.jsp">
+       <pattern>/trang-chu</pattern>
+    </decorator>
+    
+    <decorator name="home" page="admin.jsp">
+       <pattern>/home</pattern>
+    </decorator>
+    
+      <decorator name="card" page="cardList.jsp">
+       <pattern>/card</pattern>
+    </decorator>
+    
+      <decorator name="editCard" page="editCard.jsp">
+       <pattern>/editCard</pattern>
+    </decorator>
+
+</decorators>
