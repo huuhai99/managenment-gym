@@ -62,8 +62,7 @@
 				<a class="dropdown-item" href="#">Settings</a> <a
 					class="dropdown-item" href="#">Activity Log</a>
 				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#" data-toggle="modal"
-					data-target="#logoutModal">Logout</a>
+				<a class="dropdown-item" href="<c:url value='/login'/>" >Logout</a>
 			</div></li>
 	</ul>
 

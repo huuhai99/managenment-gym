@@ -13,15 +13,15 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("admin/home");
 		return mav;
 	}
-	@RequestMapping(value = "/card", method = RequestMethod.GET)
-	public ModelAndView cardPage() {
-		ModelAndView mav = new ModelAndView("admin/cardList");
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView loginPage() {
+		ModelAndView mav = new ModelAndView("admin/login");
+		return mav;
+	}
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView registerPage() {
+		ModelAndView mav = new ModelAndView("admin/register");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/editCard", method = RequestMethod.GET)
-	public ModelAndView editCardPage() {
-		ModelAndView mav = new ModelAndView("admin/editCard");
-		return mav;
-	}
 }
