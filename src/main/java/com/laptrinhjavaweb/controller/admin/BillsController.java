@@ -13,5 +13,9 @@ public class BillsController {
 		ModelAndView mav = new ModelAndView("admin/list-bills");
 		return mav;
 	}
-	
+	@RequestMapping(value = "/them-hoa-don", method = RequestMethod.GET)
+	public ModelAndView addUserPage() {
+		ModelAndView mav = new ModelAndView("admin/add-bill");
+		return mav;
+	}
 }
