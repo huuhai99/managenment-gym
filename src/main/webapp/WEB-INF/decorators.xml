@@ -21,6 +21,9 @@
       <decorator name="editCard" page="editCard.jsp">
        <pattern>/editCard</pattern>
     </decorator>
+      <decorator name="editCard" page="editCard.jsp">
+       <pattern>/them*</pattern>
+    </decorator>
     
      <decorator name="login" page="login.jsp">
        <pattern>/login</pattern>

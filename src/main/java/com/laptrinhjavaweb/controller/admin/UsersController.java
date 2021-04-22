@@ -13,5 +13,10 @@ public class UsersController {
 		ModelAndView mav = new ModelAndView("admin/list-users");
 		return mav;
 	}
+	@RequestMapping(value = "/them-khach-hang", method = RequestMethod.GET)
+	public ModelAndView addUserPage() {
+		ModelAndView mav = new ModelAndView("admin/add-user");
+		return mav;
+	}
 	
 }
