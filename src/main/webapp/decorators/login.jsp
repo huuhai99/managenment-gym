@@ -1,49 +1,91 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp" %>
-
-<!DOCTYPE html>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Trang chủ</title>
+    <title><dec:title default="Đăng nhập" /></title>
+	
+	 <script src="<c:url value='/template/admin/assets/js/jquery.min.js'/>"></script>
+    <!-- Favicon -->
+    <link href="<c:url value='/template/admin/assets/images/icons/apple-touch-icon.png'/>"
+	rel="apple-touch-icon" sizes="180x180">
+	
+	 <link href="<c:url value='/template/admin/assets/images/icons/favicon-32x32.png'/>"
+	rel="icon" type="image/png" sizes="32x32">
+	
+	 <link href="<c:url value='/template/admin/assets/images/icons/favicon-16x16.png'/>"
+	rel="icon" type="image/png" sizes="16x16">
+	
+		 <link href="<c:url value='/template/admin/assets/images/icons/site.html'/>"
+	rel="manifest">
+	
+	 <link href="<c:url value='/template/admin/assets/images/icons/safari-pinned-tab.svg'/>"
+	rel="mask-icon" color="#666666">
 
-<!-- Custom fonts for this template-->
-<link href="<c:url value='/template/admin/vendor/fontawesome-free/css/all.min.css'/>" rel="stylesheet" type="text/css">
-
-<!-- Page level plugin CSS-->
-<link href="<c:url value='/template/admin/vendor/datatables/dataTables.bootstrap4.css'/>" rel="stylesheet" type="text/css">
-
-<!-- Custom styles for this template-->
-<link href="<c:url value='/template/admin/css/sb-admin.css'/>" rel="stylesheet" type="text/css">
-
+	<link href="<c:url value='/template/admin/assets/images/icons/favicon.ico'/>"
+	rel="shortcut icon">
+	
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link href="<c:url value='/template/admin/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css'/>"
+	rel="stylesheet">
+    
+   
+    <!-- Plugins CSS File -->
+      <link href="<c:url value='/template/admin/assets/css/bootstrap.min.css'/>"
+	rel="stylesheet">
+	
+	    <link href="<c:url value='/template/admin/assets/css/plugins/owl-carousel/owl.carousel.css'/>"
+	rel="stylesheet">
+	
+	<link href="<c:url value='/template/admin/assets/css/plugins/magnific-popup/magnific-popup.css'/>"
+	rel="stylesheet">
+	
+    <!-- Main CSS File -->
+    <link href="<c:url value='/template/admin/assets/css/style.css'/>"
+	rel="stylesheet">
+	
+	 <link href="<c:url value='/template/admin/assets/css/skins/skin-demo-20.css'/>"
+	rel="stylesheet">
+	
+	<link href="<c:url value='/template/admin/assets/css/demos/demo-20.css'/>"
+	rel="stylesheet">
+	
+	<link rel='stylesheet'
+	href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+<script
+	src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
 </head>
-<body class="bg-gradient-primary">
+<body id="LoginForm">
 
-
-	<dec:body/>
-			
-    	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse display">
-				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-		</a>
-	
-	
-	<!-- Bootstrap core JavaScript-->
-	<script src="<c:url value='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
-	<script src="<c:url value='/template/admin/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
-
-	<!-- Core plugin JavaScript-->
-	<script src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
-
-	<!-- Page level plugin JavaScript-->
-	<script src="<c:url value='/template/admin/vendor/chart.js/Chart.min.js'/>"></script>
-	<script src="<c:url value='/template/admin/vendor/datatables/jquery.dataTables.js'/>"></script>
-	<script src="<c:url value='/template/admin/vendor/datatables/dataTables.bootstrap4.js'/>"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="<c:url value='/template/admin/js/sb-admin.min.js'/>"></script>
-
-	<!-- Demo scripts for this page-->
-	<script src="<c:url value='/template/admin/js/demo/datatables-demo.js'/>"></script>
-	<script src="<c:url value='/template/admin/js/demo/chart-area-demo.js'/>"></script>
+    <dec:body/>
+    
+     <!-- Plugins JS File -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <script src="<c:url value='/template/admin/assets/js/jquery.min.js'/>"></script>
+    
+        <script src="<c:url value='/template/admin/assets/js/bootstrap.bundle.min.js'/>"></script>
+        
+          <script src="<c:url value='/template/admin/assets/js/jquery.hoverIntent.min.js'/>"></script>
+          
+          <script src="<c:url value='/template/admin/assets/js/jquery.waypoints.min.js'/>"></script>
+          
+          <script src="<c:url value='/template/admin/assets/js/superfish.min.js'/>"></script>
+          
+           <script src="<c:url value='/template/admin/assets/js/owl.carousel.min.js'/>"></script>
+           
+            <script src="<c:url value='/template/admin/assets/js/jquery.magnific-popup.min.js'/>"></script>
+    
+    <!-- Main JS File -->
+     <script src="<c:url value='/template/admin/assets/js/main.js'/>"></script>
+     
+      <script src="<c:url value='/template/admin/assets/js/demos/demo-20.js'/>"></script>
 </body>
 </html>
