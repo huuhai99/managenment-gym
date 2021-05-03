@@ -30,6 +30,9 @@ public class UserEntity extends BaseEnetity {
 
 	@Column(name = "status")
 	private Integer status;
+	
+	@Column(name = "comfirmtoken")
+	private String confirmToken;
 
 	@Transient
 	private String repeatPass;
@@ -92,6 +95,14 @@ public class UserEntity extends BaseEnetity {
 
 	public void setRepeatPass(String repeatPass) {
 		this.repeatPass = repeatPass;
+	}
+
+	public String getConfirmToken() {
+		return confirmToken;
+	}
+
+	public void setConfirmToken(String confirmToken) {
+		this.confirmToken = confirmToken;
 	}
 
 

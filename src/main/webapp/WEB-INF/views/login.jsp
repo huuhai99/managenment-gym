@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>	
 <c:url var="home" value="/login" />
-<c:url var="ApiUrl" value="/web/api/user" />
+<c:url var="ApiUrl" value="/register" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Đăng nhập</title>
 </head>
 	  <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('assets/images/backgrounds/login-bg.jpg')">
@@ -51,17 +51,15 @@
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
 
-			                				<div class="custom-control custom-checkbox">
-												<input type="checkbox" class="custom-control-input" id="signin-remember-2">
-												<label class="custom-control-label" for="signin-remember-2">Remember Me</label>
-											</div><!-- End .custom-checkbox -->
-
 											<a href="#" class="forgot-link">Forgot Your Password?</a>
 							    		</div><!-- End .form-footer -->
 							    	</form>
 							    </div><!-- .End .tab-pane -->
 							    <div class="tab-pane fade  " id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-							    	<form id="formRegister">
+							    	<c:if test="${param.confirmationMessage}">
+										<div class="alert alert-success">A Confirm Email Has BeenSent</div>
+									</c:if>
+							    	<form id="formRegister" action="register" method="post">
 
 									<div class="form-group ">
 										<label for="fullName">Họ và Tên *</label> <input type="text"
@@ -73,15 +71,15 @@
 
 									<div class="form-group ">
 										<label for="userName">Tên Đăng Nhập *</label> <input
-											type="text" class="form-control" id="userName"
-											name="userName"  />
+											type="text" class="form-control" id="userName" 
+											name="userName" required   />
 										<p class="status" style="color: red;"></p>
 									</div>
 									<!-- End .form-group -->
 
 									<div class="form-group ">
 										<label for="email">Email*</label> <input type="email"
-											class="form-control" id="email" name="email"  />
+											class="form-control" id="email" name="email" required  />
 										<p class="statusEmail" style="color: red;"></p>
 									</div>
 									<!-- End .form-group -->
@@ -89,7 +87,7 @@
 									<div class="form-group">
 										<label for="phoneNumber">Số Điên Thoại *</label> <input
 											type="number" class="form-control" id="phoneNumber"
-											name="phoneNumber"  />
+											name="phoneNumber" required  />
 										<p class="statusphoneNumber" style="color: red;"></p>
 									</div>
 									<!-- End .form-group -->
@@ -125,23 +123,6 @@
 									</div>
 									<!-- End .form-footer -->
 								</form>
-							    	<div class="form-choice">
-								    	<p class="text-center">or sign in with</p>
-								    	<div class="row">
-								    		<div class="col-sm-6">
-								    			<a href="#" class="btn btn-login btn-g">
-								    				<i class="icon-google"></i>
-								    				Login With Google
-								    			</a>
-								    		</div><!-- End .col-6 -->
-								    		<div class="col-sm-6">
-								    			<a href="#" class="btn btn-login  btn-f">
-								    				<i class="icon-facebook-f"></i>
-								    				Login With Facebook
-								    			</a>
-								    		</div><!-- End .col-6 -->
-								    	</div><!-- End .row -->
-							    	</div><!-- End .form-choice -->
 							    </div><!-- .End .tab-pane -->
 							</div><!-- End .tab-content -->
 						</div><!-- End .form-tab -->
@@ -151,82 +132,27 @@
         </main><!-- End .main -->
         
         
-        <script>
-	$('#createUser').click(
-			function(e) {
-				e.preventDefault();
-				var data = {};
-				var formData = $('#formRegister').serializeArray();
-				$.each(formData, function(index, v) {
-					data["" + v.name + ""] = v.value;
-				});
-				var fullName = $('#fullName').val();
-				var userName = $('#userName').val();
-				var password = $('#password').val();
-				var email = $('#email').val();
-				var phoneNumber = $('#phoneNumber').val();
-				var address = $('#address').val();
-				var repeatPass = $('#repeatPass').val();
-				if (fullName != "" && userName != "" && password != ""
-						&& email != "" && phoneNumber != "" && address != ""
-						&& repeatPass != "") {
-					addingUser(data);
-				} else {
-					swal(" Đăng ký thất bại", " :)", "error");
-				}
-			});
-
-	function addingUser(data) {
-		$.ajax({
-			type : "POST",
-			url : "${ApiUrl}",
-			data : JSON.stringify(data),
-			dataType : "json",
-			contentType : "application/json",
-			success : function(response) {
-				swal("Đăng ký thành công!", "Mời bạn đăng nhập", "success");
-				window.location.href = "${home}?message=success";
-
-			},
-			error : function(response) {
-				swal("Thất bại", "Sản phẩm vẫn an toàn :)", "error");
-			}
-		});
-	}
-	function updateUser(data) {
-		$.ajax({
-			type : "PUT",
-			url : "${ApiUrl}",
-			data : JSON.stringify(data),
-			dataType : "json",
-			contentType : "application/json",
-			success : function(response) {
-				swal("Thành Công!", "Hãy nhấn vào nút!", "success");
-
-			},
-			error : function(response) {
-				swal("Thất bại", "Sản phẩm vẫn an toàn :)", "error");
-			}
-		});
-	}
+   <script>
 	$(document).ready(function() {
-						$("#userName").blur(function userNameExists() {
+						 $("#userName").blur(function userNameExists() {
 											var userName = $("#userName").val();
 											if (userName.length > 6 && userName.length < 32) {
 												var data = {};
 												data["userName"] = userName;
 												$.ajax({
 														type : "POST",
-														url : "/bookstore/web/check",
+														url : "/spring-mvc/check",
 														contentType : "application/json",
 														data : JSON.stringify(data),
 														success : function(result) {
 																if (result.code == 1) {
 																	$(".status").html(result.msg);
+																	$("#createUser").prop('disabled', true);
 																	return false;
 																} else {
 																	$(".status").html(result.msg);
 																	$(".status").css("color","green");
+																	$("#createUser").prop('disabled', false); 
 																	return true;
 
 																}
@@ -247,16 +173,18 @@
 									data["email"] = email;
 									$.ajax({
 										type : "POST",
-										url : "/bookstore/web/checkEmail",
+										url : "/spring-mvc/checkEmail",
 										contentType : "application/json",
 										data : JSON.stringify(data),
 										success : function(result) {
 											if (result.code == 1) {
 												$(".statusEmail").html(result.msg);
+												$("#createUser").prop('disabled', true);
 
 												return false;
 											} else {$(".statusEmail").html(result.msg);
 												$(".statusEmail").css("color","green");
+												$("#createUser").prop('disabled', false); 
 												return true;
 											}
 										},
@@ -269,15 +197,17 @@
 
 						$("#password").blur(function password() {
 											var password = $("#password").val();
-											if (password.length > 6) {
-												$(".statusPassword").html("<font>Mật Khẩu hợp lệ</font>");
-												$(".statusPassword").css("color", "green");
-												return true;
-											} else {
-												$(".statusPassword")
-														.html("<font>Mật khẩu phải dài hơn 6 ký tự.</font>");
-												return false;
-											}
+											
+												if (password.length > 6) {
+													$(".statusPassword").html("<font>Mật Khẩu hợp lệ</font>");
+													$(".statusPassword").css("color", "green");
+													return true;
+												} else {
+													$(".statusPassword")
+															.html("<font>Mật khẩu phải dài hơn 6 ký tự.</font>");
+													return false;
+												}
+											
 										});
 						$("#phoneNumber").blur(function phoneNumber() {
 											var phoneNumber = $("#phoneNumber").val();
@@ -291,7 +221,7 @@
 											}
 										});
 
-						$("#fullName").blur(function phoneNumber() {
+						$("#fullName").blur(function fullName() {
 											var fullName = $("#fullName").val();
 											if (fullName.length > 0) {$(".statusfullName").html("<font>Hợp lệ</font>");
 												$(".statusfullName").css("color", "green");
@@ -317,9 +247,8 @@
 		 									var repeatPass = $("#repeatPass").val();
 											var password = $("#password").val();
 											if (repeatPass == password) {
-												$(".statusrepeatPass").html("<font>Hợp lệ</font>");
-												$("#createUser").prop('disabled', false);
-												$(".statusrepeatPass").css("color", "red"); 
+												$(".statusrepeatPass").html("<font></font>");
+												$("#createUser").prop('disabled', false); 
 												return true;
 											} else {
 												$(".statusrepeatPass").html("<font>Mật khẩu không trùng khớp</font>");
@@ -328,6 +257,6 @@
 											}
 										});
 
-					});
+					}); 
 </script>
 </html>

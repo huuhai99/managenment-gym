@@ -4,6 +4,14 @@ import com.laptrinhjavaweb.entity.UserEntity;
 
 public interface UserService {
 	void save(UserEntity userEntity);
+	
+	
+	
+	UserEntity findByEmail(String email);
+	
+	UserEntity findOneByUsernameAndActive(String username, int status);
+	
+	UserEntity findByConfirmToken(String confirmToken);
 
 	UserEntity findByUsername(String username);
 

@@ -10,11 +10,17 @@ import com.laptrinhjavaweb.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	UserEntity findOneByUserNameAndStatus(String name, int status);
 	
+	UserEntity findByEmail(String email);
+	
+	UserEntity findByConfirmToken(String confirmToken);
+	
+	
 	boolean existsByUserName(String userName);
 	
 	boolean existsByEmail(String email);
 	
 	boolean findByPassword(@Param("password") boolean password);
+	
 	
 	
 	

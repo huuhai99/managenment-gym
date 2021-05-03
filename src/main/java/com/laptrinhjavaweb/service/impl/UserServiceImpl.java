@@ -1,15 +1,12 @@
 package com.laptrinhjavaweb.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
-import com.laptrinhjavaweb.entity.RoleEntity;
 import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.repository.RoleRespository;
 import com.laptrinhjavaweb.repository.UserRepository;
@@ -29,8 +26,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void save(UserEntity userEntity) {
-		userEntity.setPassword(bCyptPass.encode(userEntity.getPassword()));
-		userEntity.setRoles(new ArrayList<>());
+		userEntity.setEmail(userEntity.getEmail());
+		userEntity.setFullName(userEntity.getFullName());
+		userEntity.setUserName(userEntity.getUserName());
+		userEntity.setRoles(Arrays.asList(roleRespository.findByCode("USER")));
+		
 
 		userRespository.save(userEntity);
 
@@ -55,6 +55,22 @@ public class UserServiceImpl implements UserService {
 	public boolean findByPassword(boolean password) {
 		return userRespository.findByPassword(password);
 	}
+
+	@Override
+	public UserEntity findByEmail(String email) {
+		return userRespository.findByEmail(email);
+	}
+
+	@Override
+	public UserEntity findOneByUsernameAndActive(String username, int status) {
+		return userRespository.findOneByUserNameAndStatus(username, status);
+	}
+
+	@Override
+	public UserEntity findByConfirmToken(String confirmToken) {
+		return userRespository.findByConfirmToken(confirmToken);
+	}
+
 
 	
 }
