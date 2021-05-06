@@ -1,11 +1,9 @@
 package com.laptrinhjavaweb.dto;
 
-import java.sql.Date;
-
-public class CustomerDto {
+public class CustomerDto extends AbstractDTO<CustomerDto>{
 
 	private String fullName;
-	private Date birthday;
+	private String birthday;
 	private String sex;
 	private String numberphone;
 	private String note;
@@ -19,11 +17,11 @@ public class CustomerDto {
 		this.fullName = fullName;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 

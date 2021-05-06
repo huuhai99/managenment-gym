@@ -1,3 +1,4 @@
+<%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -61,7 +62,7 @@
 									<th>CreateDate</th>
 									<th>CreateBy</th>
 									<th>ModifiledDate</th>
-									<th>ModifiledDate</th>
+									<th>ModifiledBy</th>
 									<th>Manipulationc</th>
 								</tr>
 							</thead>
@@ -74,67 +75,27 @@
 									<th>CreateDate</th>
 									<th>CreateBy</th>
 									<th>ModifiledDate</th>
-									<th>ModifiledDate</th>
+									<th>ModifiledBy</th>
 									<th>Manipulationc</th>
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
+								<c:forEach var="item" items="${model.listResult}">
+									<tr>
+										<td>${item.id}</td>
+										<td>${item.idCustomer}</td>
+										<td>${item.content}</td> 
+										<td>${item.money}</td> 
+										<td>${item.createdDate}</td> 
+										<td>${item.createdBy}</td> 
+										<td>${item.modifiedDate}</td> 
+										<td>${item.modifiedBy}</td> 
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
+								</c:forEach>
 								<tr>
 									<td>5</td>
 									<td>1</td>

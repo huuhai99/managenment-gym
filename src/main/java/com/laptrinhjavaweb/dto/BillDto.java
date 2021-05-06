@@ -1,19 +1,21 @@
 package com.laptrinhjavaweb.dto;
 
-public class BillDto {
+public class BillDto extends AbstractDTO<BillDto>{
 
-	private int idCustomer;
+	private Long idCustomer;
 	private String content;
 	private String money;
 	private int status;
 
 	
 
-	public int getIdCustomer() {
+	
+
+	public Long getIdCustomer() {
 		return idCustomer;
 	}
 
-	public void setIdCustomer(int idCustomer) {
+	public void setIdCustomer(Long idCustomer) {
 		this.idCustomer = idCustomer;
 	}
 

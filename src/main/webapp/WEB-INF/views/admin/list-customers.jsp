@@ -1,3 +1,4 @@
+<%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -75,54 +76,20 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
+								<c:forEach var="item" items="${model.listResult}">
+									<tr>
+										<td>${item.id}</td>
+										<td>${item.fullName}</td>
+										<td>${item.sex}</td> 
+										<td>${item.numberphone}</td> 
+										<td>${item.birthday}</td> 
+										<td>${item.note}</td> 
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
+								</c:forEach>
 								<tr>
 									<td>5</td>
 									<td>Garrett Winters</td>
