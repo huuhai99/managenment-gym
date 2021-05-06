@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@include file="/common/taglib.jsp"%>
 
 <!DOCTYPE html>
 
@@ -31,76 +32,25 @@
 							<thead>
 								<tr>
 									<th>Name</th>
-									<th>Sex</th>
-									<th>Phone</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>End date</th>
+									<th>Issue Date</th>
+									<th>Valid Upto</th>
+									<th>Number Phone</th>
 									<th>Thao Tác</th>
 								</tr>
 							</thead>
-							<tfoot>
-								<tr>
-									<th>Name</th>
-									<th>Sex</th>
-									<th>Phone</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>End date</th>
-									<th>Thao Tác</th>
-								</tr>
-							</tfoot>
 							<tbody>
+							<c:forEach var="item" items="${cards}">
 								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>03515116118</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td>2012/03/29</td>
+									<td>${item.nameCustomer}</td>
+									<td>${item.issueDate}</td>
+									<td>${item.validUpto}</td>
+									<td>${item.numberPhone}</td>
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>
-								<tr>
-									<td>Garrett Winters</td>
-									<td>Accountant</td>
-									<td>0331156198</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td>2012/03/29</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>Ashton Cox</td>
-									<td>Junior Technical Author</td>
-									<td>0381561946</td>
-									<td>66</td>
-									<td>2009/01/12</td>
-									<td>2012/05/29</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>Cedric Kelly</td>
-									<td>Senior Javascript Developer</td>
-									<td>0315165198</td>
-									<td>22</td>
-									<td>2012/03/29</td>
-									<td>2012/04/29</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								
-							
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
