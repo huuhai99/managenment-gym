@@ -51,7 +51,7 @@
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
 
-											<a href="#" class="forgot-link">Forgot Your Password?</a>
+											<a href="<c:url value='email'/>" class="forgot-link">Forgot Your Password?</a>
 							    		</div><!-- End .form-footer -->
 							    	</form>
 							    </div><!-- .End .tab-pane -->

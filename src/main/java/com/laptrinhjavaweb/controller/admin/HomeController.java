@@ -78,6 +78,13 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/email", method = RequestMethod.GET)
+	public ModelAndView emailPage() {
+		ModelAndView mav = new ModelAndView("checkEmail");
+		return mav;
+	}
+	
+	// UUID(Universally Unique IDentifier)
 	@RequestMapping(value = "/register" , method = {RequestMethod.POST} )
 	public ModelAndView  register( @RequestBody UserEntity entity , ModelAndView mav) {
 	
@@ -120,6 +127,50 @@ public class HomeController {
 		return mav;
 		
 	}
+	
+	@RequestMapping(value = "/sendMail", method = { RequestMethod.POST })
+	public ModelAndView sendMail(UserEntity entity, ModelAndView mav) {
+
+		UserEntity findEmail = userService.findByEmail(entity.getEmail());
+
+		SimpleMailMessage reMailMessage = new SimpleMailMessage();
+		reMailMessage.setTo(entity.getEmail());
+		reMailMessage.setSubject("Confirm Your Email Here");
+		reMailMessage.setText("To confirm your email, please click the link below: "
+				+ "http://localhost:8080/spring-mvc/forgotpass?token=" + findEmail.getConfirmToken());
+		reMailMessage.setFrom("noreplymobileshop@gmail.com");
+		emailService.sendEmail(reMailMessage);
+		mav.setViewName("verifyEmailPassword");
+
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/forgotpass", method = RequestMethod.GET)
+	public ModelAndView getToken(@RequestParam("token") String token, ModelAndView mav) {
+		UserEntity userToken = userService.findByConfirmToken(token);
+		mav.addObject("token", userToken);
+		mav.setViewName("forgotpassword");
+		return mav;
+	}
+
+	@RequestMapping(value = "/forgotpass", method = { RequestMethod.POST })
+	public ModelAndView resetPass(@RequestParam("confirmToken") String token, @RequestParam("password") String password, ModelAndView mav) {
+		UserEntity userToken = userService.findByConfirmToken(token);
+		System.out.println(token);
+		if (userToken != null) {
+			UserEntity entity = userService.findByConfirmToken(token);
+			entity.setPassword(bCyptPass.encode(password));
+			userService.save(entity);
+			mav.addObject("confirmationToken", userToken.getConfirmToken());
+			mav.setViewName("login");
+		} else {
+			mav.addObject("invalidToken", "No confirm email");
+		}
+
+		return mav;
+
+	}
 
 	@PostMapping("/check")
 	@ResponseBody
@@ -147,5 +198,16 @@ public class HomeController {
 		}
 		return new JsonResultDto<String>().success("oke" , null);
 	}
+	
+	// check email bên form xác nhận email
+		@PostMapping("/checkEmail1")
+		@ResponseBody
+		public JsonResultDto<String> checkEmail1(@RequestBody UserEntity entity) {
+			if (userService.existsByEmail(entity.getEmail())) {
+				return new JsonResultDto<String>().error("");
+			}
+			return new JsonResultDto<String>().success("Email chưa được đăng ký", null);
+
+		}
 
 }
