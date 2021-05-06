@@ -6,6 +6,8 @@
 	<persistence-unit name="persistence-data">
 		<class>com.laptrinhjavaweb.entity.UserEntity</class>
 		<class>com.laptrinhjavaweb.entity.RoleEntity</class>
+		<class>com.laptrinhjavaweb.entity.CustomerEntity</class>
+		<class>com.laptrinhjavaweb.entity.BillEntity</class>
 	</persistence-unit>
 </persistence>
 
