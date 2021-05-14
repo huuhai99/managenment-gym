@@ -15,6 +15,11 @@ public class HomeController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
+	public ModelAndView calendaerPage() {
+		ModelAndView mav = new ModelAndView("web/calendarV2");
+		return mav;
+	}
 	
 	
 	

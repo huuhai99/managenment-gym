@@ -31,12 +31,12 @@
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 					<a class="dropdown-item" href="<c:url value='/card'/>">Danh sách thẻ</a> 
-					<a class="dropdown-item" href="<c:url value='editCard'/>">Thêm thẻ</a> 
+					
 						
 				</div></li>
 				
 				
-			<li class="nav-item"><a class="nav-link" href="charts.html">
+			<li class="nav-item"><a class="nav-link" href="<c:url value='/attendance'/>">
 					<i class="fas fa-fw fa-chart-area"></i> <span>Điểm danh</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="tables.html">

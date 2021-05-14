@@ -26,8 +26,8 @@ public class CustomerServiceImpl implements ICustomerService {
 			customerDTO.setId(item.getId());
 			customerDTO.setFullName(item.getFullName());
 			customerDTO.setSex(item.getSex());
-			customerDTO.setNumberphone(item.getNumberphone());
-			customerDTO.setBirthday(item.getBirthday());
+			customerDTO.setNumberPhone(item.getNumberPhone());
+			customerDTO.setBirthday(item.getBirthDay());
 			customerDTO.setNote(item.getNote());
 			models.add(customerDTO);
 		}

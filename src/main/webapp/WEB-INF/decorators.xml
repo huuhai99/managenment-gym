@@ -19,7 +19,7 @@
     </decorator>
     
       <decorator name="editCard" page="editCard.jsp">
-       <pattern>/editCard</pattern>
+       <pattern>/editCard/*</pattern>
     </decorator>
       <decorator name="editCard" page="editCard.jsp">
        <pattern>/them*</pattern>
@@ -31,6 +31,13 @@
     
      <decorator name="login" page="login.jsp">
        <pattern>/register</pattern>
+    </decorator>
+    
+      <decorator name="calander" page="calander.jsp">
+       <pattern>/attendance</pattern>
+    </decorator>
+    <decorator name="calendarV2" page="calendarV2.jsp">
+       <pattern>/calendar</pattern>
     </decorator>
     
 

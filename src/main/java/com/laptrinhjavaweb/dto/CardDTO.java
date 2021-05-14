@@ -1,15 +1,20 @@
 package com.laptrinhjavaweb.dto;
 
-public class CardDTO {
+public class CardDTO extends AbstractDTO<CardDTO> {
 
 	private String issueDate;
 	private String validUpto;
 	private String status;
 	private Long idCustomer;
 	private String nameCustomer;
+	private String numberPhoneCustomer;
+	private String noteCustomer;
 	
-	private String numberPhone;
-
+	private String title;
+	private String start;
+	private String end;
+	private String description;	
+	
 	public String getIssueDate() {
 		return issueDate;
 	}
@@ -50,13 +55,58 @@ public class CardDTO {
 		this.nameCustomer = nameCustomer;
 	}
 
-	public String getNumberPhone() {
-		return numberPhone;
+
+
+	public String getNumberPhoneCustomer() {
+		return numberPhoneCustomer;
 	}
 
-	public void setNumberPhone(String numberPhone) {
-		this.numberPhone = numberPhone;
+	public void setNumberPhoneCustomer(String numberPhoneCustomer) {
+		this.numberPhoneCustomer = numberPhoneCustomer;
 	}
+
+	public String getNoteCustomer() {
+		return noteCustomer;
+	}
+
+	public void setNoteCustomer(String noteCustomer) {
+		this.noteCustomer = noteCustomer;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getStart() {
+		return start;
+	}
+
+	public void setStart(String start) {
+		this.start = start;
+	}
+
+	public String getEnd() {
+		return end;
+	}
+
+	public void setEnd(String end) {
+		this.end = end;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+	
 	
 
 }

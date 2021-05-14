@@ -28,17 +28,17 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Name</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="text" value=""  required="required" />
+                        <input class="form-control" type="text" value="${card.nameCustomer}" id="fullName" name="fullName"  required="required" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Phone</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="number" value="" required="required" />
+                        <input class="form-control" type="number" value="${card.numberPhoneCustomer}"  id="numberPhone" name="numberPhone"  required="required" />
                     </div>
                 </div>
                 
-                 <div class="form-group row">
+                <!--  <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label">Age</label>
                     <div class="col-lg-9">
                         <input class="form-control" type="number" value="" required="required" />
@@ -50,19 +50,19 @@
                     <div class="col-lg-9">
                         <input class="form-control" type="text" value="" required="required"  />
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Start Day</label>
+                    <label class="col-lg-3 col-form-label form-control-label">Issue Date</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="date" value="" required="required"  />
+                        <input class="form-control" type="text" value="${card.issueDate}" id="issueDate" name="issueDate" required="required"  />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">End Day</label>
+                    <label class="col-lg-3 col-form-label form-control-label">Valid Upto</label>
                     <div class="col-lg-9">
-                        <input class="form-control" type="date" value="" />
-                    </div>
+                        <input class="form-control" type="text" value="${card.validUpto}" id="validUpto" name="validUpto"   required/>
+                    </div> 
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>

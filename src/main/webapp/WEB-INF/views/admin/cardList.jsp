@@ -42,12 +42,13 @@
 							<c:forEach var="item" items="${cards}">
 								<tr>
 									<td>${item.nameCustomer}</td>
-									<td>${item.issueDate}</td>
-									<td>${item.validUpto}</td>
-									<td>${item.numberPhone}</td>
+									 <td>${item.issueDate}</td>
+									<td>${item.validUpto}</td> 
+									<td>${item.numberPhoneCustomer}</td>
 									<td>
+									
 									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
+									<a href="<c:url value='/editCard/${item.id}'/>" ><i class="fas fa-edit" style="color: green;"></i></a>
 									</td>
 								</tr>
 								</c:forEach>

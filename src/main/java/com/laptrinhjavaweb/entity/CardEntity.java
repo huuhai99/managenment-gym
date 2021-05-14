@@ -1,42 +1,59 @@
 package com.laptrinhjavaweb.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 @Entity
 @Table(name = "card")
 public class CardEntity extends BaseEnetity {
 
-	@Column(name = "issuedate")
-	private String issueDate;
+	@Column(name = "startdate")
+	@CreatedDate	
+	private Date startDate;
 
-	@Column(name = "validupto")
-	private String validUpto;
+	@Column(name = "enddate")
+	@LastModifiedDate
+	private Date endDate;
 
 	@Column(name = "status")
 	private String status;
+	
+	@Column(name="description")
+	private String description;
+	
+	@Column(name="title")
+	private String title;
+
 
 	@OneToOne
 	@JoinColumn(name = "customerid", referencedColumnName = "id")
 	private CustomerEntity customerEntity;
 
-	public String getIssueDate() {
-		return issueDate;
+
+
+	
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setIssueDate(String issueDate) {
-		this.issueDate = issueDate;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public String getValidUpto() {
-		return validUpto;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setValidUpto(String validUpto) {
-		this.validUpto = validUpto;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	public String getStatus() {
@@ -47,6 +64,14 @@ public class CardEntity extends BaseEnetity {
 		this.status = status;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public CustomerEntity getCustomerEntity() {
 		return customerEntity;
 	}
@@ -54,5 +79,15 @@ public class CardEntity extends BaseEnetity {
 	public void setCustomerEntity(CustomerEntity customerEntity) {
 		this.customerEntity = customerEntity;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	
 
 }

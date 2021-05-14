@@ -5,7 +5,7 @@ public class CustomerDto extends AbstractDTO<CustomerDto>{
 	private String fullName;
 	private String birthday;
 	private String sex;
-	private String numberphone;
+	private String numberPhone;
 	private String note;
 	private int status;
 
@@ -33,12 +33,13 @@ public class CustomerDto extends AbstractDTO<CustomerDto>{
 		this.sex = sex;
 	}
 
-	public String getNumberphone() {
-		return numberphone;
+
+	public String getNumberPhone() {
+		return numberPhone;
 	}
 
-	public void setNumberphone(String numberphone) {
-		this.numberphone = numberphone;
+	public void setNumberPhone(String numberPhone) {
+		this.numberPhone = numberPhone;
 	}
 
 	public String getNote() {

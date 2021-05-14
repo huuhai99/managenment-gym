@@ -13,15 +13,20 @@ import javax.persistence.Table;
 public class CustomerEntity extends BaseEnetity {
 
 	@Column(name = "fullname")
-	private String fullname;
+	private String fullName;
+	
 	@Column(name = "birthday")
-	private String birthday;
+	private String birthDay;
+	
 	@Column(name = "sex")
 	private String sex;
+	
 	@Column(name = "numberphone")
-	private String numberphone;
+	private String numberPhone;
+	
 	@Column(name = "note")
 	private String note;
+	
 	@Column(name = "status")
 	private Long status;
 
@@ -30,20 +35,22 @@ public class CustomerEntity extends BaseEnetity {
 	@OneToMany(mappedBy = "customer")
 	private List<BillEntity> bill = new ArrayList<>();
 
+	
+
 	public String getFullName() {
-		return fullname;
+		return fullName;
 	}
 
-	public void setFullName(String fullname) {
-		this.fullname = fullname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getBirthday() {
-		return birthday;
+	public String getBirthDay() {
+		return birthDay;
 	}
 
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setBirthDay(String birthDay) {
+		this.birthDay = birthDay;
 	}
 
 	public String getSex() {
@@ -54,12 +61,12 @@ public class CustomerEntity extends BaseEnetity {
 		this.sex = sex;
 	}
 
-	public String getNumberphone() {
-		return numberphone;
+	public String getNumberPhone() {
+		return numberPhone;
 	}
 
-	public void setNumberphone(String numberphone) {
-		this.numberphone = numberphone;
+	public void setNumberPhone(String numberPhone) {
+		this.numberPhone = numberPhone;
 	}
 
 	public String getNote() {

@@ -24,7 +24,7 @@ public abstract class BaseEnetity {
 	private Long id;
 
 	@Column(name = "createddate")
-	@CreatedDate
+	@CreatedDate	
 	private Date createdDate;
 
 	@Column(name = "modefieddate")

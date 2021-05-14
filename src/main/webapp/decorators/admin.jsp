@@ -16,6 +16,9 @@
 <!-- Custom styles for this template-->
 <link href="<c:url value='/template/admin/css/sb-admin.css'/>" rel="stylesheet" type="text/css">
 
+<!--  -->
+
+
 </head>
 <body id="page-top">
 
@@ -35,6 +38,10 @@
     	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse display">
 				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 		</a>
+		
+		
+		
+
 	
 	
 	<!-- Bootstrap core JavaScript-->
