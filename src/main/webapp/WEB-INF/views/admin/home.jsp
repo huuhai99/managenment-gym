@@ -91,13 +91,6 @@
 												<div class="col-auto">
 													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">3</div>
 												</div>
-												<div class="col">
-													<div class="progress progress-sm mr-2">
-														<div class="progress-bar bg-info" role="progressbar"
-															style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-															aria-valuemax="100"></div>
-													</div>
-												</div>
 											</div>
 										</div>
 										<div class="col-auto">
@@ -127,36 +120,144 @@
 							</div>
 						</div>
 					</div>
-					<!-- Area Chart -->
-					<div class="col-xl-8 col-lg-7">
+				                   <!-- Content Row -->
+
+                    <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <div class="col-xl-8 col-lg-7">
+
+                            <!-- Area Chart -->
+
+                            <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Styling for the bar chart can be found in the
+                                    <code>/js/demo/chart-bar-demo.js</code> file.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
                                 </div>
-                               <!--  <!-- Card Body -->
+                                <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart"></canvas>
                                     </div>
-                                </div> -->
+                                    <hr>
+                                    Styling for the donut chart can be found in the
+                                    <code>/js/demo/chart-pie-demo.js</code> file.
+                                </div>
                             </div>
                         </div>
+                    </div>
+
+                </div>
+                    <!-- End of chart Content -->
+                    <div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Khách Hàng</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataTable" width="100%"
+							cellspacing="0">
+							<thead>
+								<tr>
+									<th>IdBill</th>
+									<th>IdCustomer</th>
+									<th>Content</th>
+									<th>Money</th>
+									<th>CreateDate</th>
+									<th>CreateBy</th>
+									<th>ModifiledDate</th>
+									<th>ModifiledBy</th>
+									<th>Manipulationc</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>IdBill</th>
+									<th>IdCustomer</th>
+									<th>Content</th>
+									<th>Money</th>
+									<th>CreateDate</th>
+									<th>CreateBy</th>
+									<th>ModifiledDate</th>
+									<th>ModifiledBy</th>
+									<th>Manipulationc</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<c:forEach var="item" items="${model.listResult}">
+									<tr>
+										<td>${item.id}</td>
+										<td>${item.idCustomer}</td>
+										<td>${item.content}</td> 
+										<td>${item.money}</td> 
+										<td>${item.createdDate}</td> 
+										<td>${item.createdBy}</td> 
+										<td>${item.modifiedDate}</td> 
+										<td>${item.modifiedBy}</td> 
+									<td>
+									<i class="fas fa-trash-alt" style="color: red;"></i>
+									<i class="fas fa-edit" style="color: green;"></i>
+									</td>
+								</tr>
+								</c:forEach>
+								<tr>
+									<td>5</td>
+									<td>1</td>
+									<td>gym</td>
+									<td>100$</td>
+									<td>2011/04/25</td>
+									<td>admin</td>
+									<td>2011/04/25</td>
+									<td>admin</td>
+									<td>
+									<i class="fas fa-trash-alt" style="color: red;"></i>
+									<i class="fas fa-edit" style="color: green;"></i>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>12</td>
+									<td>1</td>
+									<td>gym</td>
+									<td>100$</td>
+									<td>2011/04/25</td>
+									<td>admin</td>
+									<td>2011/04/25</td>
+									<td>admin</td>
+									<td>
+									<i class="fas fa-trash-alt" style="color: red;"></i>
+									<i class="fas fa-edit" style="color: green;"></i>
+									</td>
+								</tr>						
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+                    
 				</div>
 				<!-- /.container-fluid -->
 			</div>

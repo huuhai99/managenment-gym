@@ -81,7 +81,7 @@
 										<td>${item.id}</td>
 										<td>${item.fullName}</td>
 										<td>${item.sex}</td> 
-										<td>${item.numberphone}</td> 
+										<td>${item.numberPhone}</td> 
 										<td>${item.birthday}</td> 
 										<td>${item.note}</td> 
 									<td>
