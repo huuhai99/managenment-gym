@@ -13,15 +13,14 @@
 					<a class="dropdown-item" href="<c:url value='danh-sach'/>">Danh sách nhân viên</a> 
 					<a class="dropdown-item" href="<c:url value='danh-sach'/>">Danh sách khách hàng</a> 
 						
-				</div></li>
-				<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="<c:url value='/danh-sach-hoa-don'/>" id="pagesDropdown"
-				> <i class="fas fa-fw fa-folder"></i>Quản lí hóa đơn</a>
-			<%-- 	<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a class="dropdown-item" href="<c:url value='/card'/>">Danh sách thẻ</a> 
-					<a class="dropdown-item" href="<c:url value='editCard'/>">Thêm thẻ</a> 
-						
-				</div> --%>
+				</div>
+				</li>
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="<c:url value='/danh-sach-hoa-don'/>" id="pagesDropdown"> 
+				<i class="fas fa-fw fa-folder"></i>Quản lí hóa đơn</a>
+				</li>
+				
+				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="<c:url value='/danh-sach-the-loai'/>" id="pagesDropdown"> 
+				<i class="fas fa-fw fa-folder"></i>Quản lí Thể Loại</a>
 				</li>
 				
 				<li class="nav-item dropdown"><a
