@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
   <title>CodePen - full calendar bootstrap 4</title>
 
 </head>
@@ -30,6 +29,8 @@
 					<span class="event-title"></span>
 					<br>
 					<span class="event-description"></span>
+					<br>
+					<span  class = "event-start"></span>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
@@ -130,7 +131,6 @@
 		    // ------------------------------------------------------- //
 		    // Calendar
 		    // ------------------------------------------------------ //
-		    var start = timeFormat(new Date('#event-start'));
 			jQuery(function() {
 				// page is ready
 				jQuery('#calendar').fullCalendar({
@@ -169,13 +169,17 @@
 					  },
 					dayClick: function() {
 						jQuery('#modal-view-event-add').modal();
+						
 					},
 					eventClick: function(event, jsEvent, view) {
-					        jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
-							jQuery('.event-title').html(event.title);
-							jQuery('.event-description').html(event.description);
+						 var date = new Date(event.start);
+					 alert(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear() + ' ' + date.getHours()+':'+ date.getMinutes()+ ':' +date.getSeconds());  
+					     /* jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
+							jQuery('.event-title').html("<span>Ten: </span> "+event.title);
+							jQuery('.event-description').html("<span>Mo ta: </span> "+event.description);
+							jQuery('.event-start').html(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear());
 							jQuery('.eventUrl').attr('href',event.url);
-							jQuery('#modal-view-event').modal();
+							jQuery('#modal-view-event').modal(); */
 					},
 				})
 			});
