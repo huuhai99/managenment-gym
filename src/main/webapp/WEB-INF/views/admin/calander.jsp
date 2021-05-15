@@ -71,10 +71,9 @@
 	<script> 
 	$( document ).ready(function() {
 		
-		
-	
 	
 	});
+	
 	
 	
 	$('#saveCalendar').click(function (e) {
@@ -84,7 +83,12 @@
 		  $.each(formData, function (index, v) {
 		        data["" + v.name + ""] = v.value;
 		    });
-		  addingBook(data);
+		  var title = $('#title').val();
+		  if(title !=""){
+			  addingBook(data);
+		  }else {
+		  }
+		  
 		});
 		function addingBook(data) {
 				   $.ajax({

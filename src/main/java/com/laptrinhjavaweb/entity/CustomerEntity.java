@@ -3,8 +3,12 @@ package com.laptrinhjavaweb.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -14,28 +18,28 @@ public class CustomerEntity extends BaseEnetity {
 
 	@Column(name = "fullname")
 	private String fullName;
-	
+
 	@Column(name = "birthday")
 	private String birthDay;
-	
+
 	@Column(name = "sex")
 	private String sex;
-	
+
 	@Column(name = "numberphone")
 	private String numberPhone;
-	
+
 	@Column(name = "note")
 	private String note;
-	
+
 	@Column(name = "status")
 	private Long status;
-
-	
 
 	@OneToMany(mappedBy = "customer")
 	private List<BillEntity> bill = new ArrayList<>();
 
-	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@JoinColumn(name = "categoryid")
+	private CategoryEntity category;
 
 	public String getFullName() {
 		return fullName;
@@ -93,5 +97,12 @@ public class CustomerEntity extends BaseEnetity {
 		this.bill = bill;
 	}
 
+	public CategoryEntity getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
+	}
 
 }

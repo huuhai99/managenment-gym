@@ -21,16 +21,9 @@ public class BillEntity extends BaseEnetity {
 	@Column(name = "status")
 	private Long status;
 	
-	
-	
-
-	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customerid")
     private CustomerEntity customer;
-	
-	
-
 	
 	public String getMoney() {
 		return money;

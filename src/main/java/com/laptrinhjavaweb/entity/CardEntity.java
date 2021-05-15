@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -23,7 +24,7 @@ public class CardEntity extends BaseEnetity {
 	@LastModifiedDate
 	private Date endDate;
 
-	@Column(name = "status")
+	@Transient
 	private String status;
 	
 	@Column(name="description")
