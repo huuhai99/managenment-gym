@@ -15,7 +15,12 @@
 
 <!-- Custom styles for this template-->
 <link href="<c:url value='/template/admin/css/sb-admin.css'/>" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<link rel='stylesheet'
+	href='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css'>
+<script
+	src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
 </head>
 <body id="page-top">
 

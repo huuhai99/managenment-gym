@@ -18,6 +18,29 @@
 
 
 <div class="container-fluid">
+
+<div style="text-align: right ; padding-top: 20px;" class="widget-box table-filter">
+				<div style="position:"class="table-btn-controls">
+					<div class="pull-right tableTools-container">
+						<div class="dt-buttons btn-overlap btn-group">
+							<a flag="info"
+								class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
+								data-toggle="tooltip" title='Thêm bài viết'
+								href='them-the-loai'> <span>
+									<i class="fa fa-plus-circle bigger-110 purple"></i>
+							</span>
+							</a>
+							<!-- <button style ="margin-left: 1px" id="btnDelete" type="button"
+								class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
+								data-toggle="tooltip" title='Xóa bài viết'>
+								<span> <i class="fa fa-trash bigger-110 pink"></i>
+								</span>
+							</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
 		
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
