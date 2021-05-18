@@ -275,7 +275,7 @@
 			</div>
 		</div>
 	</div>
-	 <!-- <script>
+	 <script>
   var ctx = document.getElementById("myPieChart");
   var myPieChart = new Chart(ctx, {
     type: 'pie',
@@ -352,7 +352,6 @@
       }
     });
   </script>
-   -->
 </body>
 
 </html>

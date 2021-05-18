@@ -16,6 +16,7 @@
 <!-- Custom styles for this template-->
 <link href="<c:url value='/template/admin/css/sb-admin.css'/>" rel="stylesheet" type="text/css">
 
+<script src="<c:url value='/template/admin/js/demo/chart.js'/>"></script> 
 <!--  -->
 
 
@@ -64,8 +65,8 @@
 	<%-- <script src="<c:url value='/template/admin/js/demo/chart-area-demo.js'/>"></script> --%>
 <%-- 	<script src="<c:url value='/template/admin/js/demo/chart-bar-demo.js'/>"></script> --%>
 	<%-- <script src="<c:url value='/template/admin/js/demo/chart-pie-demo.js'/>"></script> --%>
-	<script src="<c:url value='/template/admin/js/demo/chart.js'/>"></script> 
-	 <script>
+	
+	 <!-- <script>
   var ctx = document.getElementById("myPieChart");
   var myPieChart = new Chart(ctx, {
     type: 'pie',
@@ -141,6 +142,6 @@
         }
       }
     });
-  </script>
+  </script> -->
 </body>
 </html>
