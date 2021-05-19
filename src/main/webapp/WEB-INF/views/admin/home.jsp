@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp"%>
 <!DOCTYPE html>
 
 <html>
@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 
 <title>Home Page</title>
-
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
@@ -24,13 +24,32 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<div><h1 class="h3 mb-0 text-gray-800">Thống kê</h1>
-						<label for="">Thống kê theo:</label> <select id="">
-							<option value=""selected>Tháng</option>
-							<option value="" >Năm</option>
-							<option value="">Quý</option>
-							<option value="" >Ngày</option>
-						</select> </div>
+						<%-- <div><h1 class="h3 mb-0 text-gray-800">Thống kê</h1>
+						<label for="">Thống kê theo:</label> <select id="thongkeSelect">
+							<option value="1"selected><a href="<c:url value='/danh-sach'/>">Tháng</a></option>
+							<option value="2" >Năm</option>
+							<option value="3">Quý</option>
+							<option value="4" >Ngày</option>
+							 
+						</select> 
+						<input type="text" id="txtTest"/>
+						</div> --%>
+						<ul class="navbar-nav">
+				<li class="nav-item dropdown"><a style="color:black;font-size:25px"
+				class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> <i ></i> <span>Thống kê theo</span>
+			</a>
+				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+					<a  class="dropdown-item" href="<c:url value='/home?time=ngay'/>">Ngày</a> 
+					<a class="dropdown-item" href="<c:url value='/home?time=thang'/>">Tháng</a> 
+					<a class="dropdown-item" href="<c:url value='/home?time=nam'/>">Năm</a> 
+					<a class="dropdown-item" href="<c:url value='/home?time=quy'/>">Quý</a> 
+						
+				</div>
+				</li>
+		
+		</ul>
 						
 					<!-- 	<a href="#"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
@@ -244,6 +263,18 @@
 			</div>
 		</div>
 	</div>
+<!-- 	<script>
+		$( "#thongkeSelect" )
+  		.change(function() {
+   		 var str = "";
+    		$( "#thongkeSelect option:selected" ).each(function() {
+    			str = $( "#thongkeSelect").text();
+    		  console.log($( "#thongkeSelect option:selected" ).text());
+   			 $("#txtTest").val( $( "#thongkeSelect option:selected" ).text() );
+    		});
+		  })
+  		.trigger( "change" );
+</script> -->
 	 <script>
   var ctx = document.getElementById("myPieChart");
   var myPieChart = new Chart(ctx, {
@@ -318,7 +349,16 @@
         },
         tooltips:{
           enabled:true
-        }
+        },
+        scales: {
+        	yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true,
+                    min: 0
+                }
+            }]
+        }   
       }
     });
   </script>

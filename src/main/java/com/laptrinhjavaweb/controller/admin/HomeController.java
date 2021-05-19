@@ -55,7 +55,7 @@ public class HomeController {
 	private ICustomerService customerService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView homePage() {
+	public ModelAndView homePage(@RequestParam(value = "time", required = false) String time) {
 		ModelAndView mav = new ModelAndView("admin/home");
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
@@ -66,10 +66,43 @@ public class HomeController {
 		}
 		mav.addObject("userId", idUser);
 		ThongKeDto thongKe = new ThongKeDto();
+<<<<<<< Updated upstream
 		thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
 		thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
 		thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
 		mav.addObject("thongke", thongKe);
+=======
+		if (time == null) {
+			thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
+			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
+			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
+			mav.addObject("thongke", thongKe);
+		}
+		else if(time.equals("ngay")){
+			thongKe.setTotalCustomer(2);
+			thongKe.setMaleCustomer(1);
+			thongKe.setFemaleCustomer(1);
+			mav.addObject("thongke", thongKe);
+		}
+		else if(time.equals("thang")){
+			thongKe.setTotalCustomer(3);
+			thongKe.setMaleCustomer(2);
+			thongKe.setFemaleCustomer(1);
+			mav.addObject("thongke", thongKe);
+				}
+		else if(time.equals("nam")){
+			thongKe.setTotalCustomer(4);
+			thongKe.setMaleCustomer(2);
+			thongKe.setFemaleCustomer(2);
+			mav.addObject("thongke", thongKe);
+		}
+		else if(time.equals("quy")){
+			thongKe.setTotalCustomer(5);
+			thongKe.setMaleCustomer(2);
+			thongKe.setFemaleCustomer(3);
+			mav.addObject("thongke", thongKe);
+				}
+>>>>>>> Stashed changes
 		return mav;
 	}
 
