@@ -19,12 +19,12 @@ public class BillAPI {
 	
 	@PostMapping("/api/bill")
 	public BillDto createBill(@RequestBody BillDto billDTO) {
-		return customerService.save(billDTO);
+		return billService.save(billDTO);
 	}
 	
 	@PutMapping("/api/bill")
 	public BillDto updateBill(@RequestBody BillDto updateBill) {
-		return customerService.save(updateBill);
+		return billService.save(updateBill);
 	}
 	
 	@DeleteMapping("/api/bill")

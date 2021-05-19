@@ -62,6 +62,14 @@ public class CardController {
 	public ModelAndView addUserPage() {
 		ModelAndView mav = new ModelAndView("admin/calander");
 		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/danh-sach-diem-danh/{id}" , method = RequestMethod.GET)
+	public ModelAndView showAttendancePage(@PathVariable Long id) {
+		ModelAndView mav = new ModelAndView("admin/listAttendance");
+		List<CardDTO> listAttdetdace = cardService.findByCustomer(id);
+		
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
 		if (myUser == null) {
@@ -70,13 +78,6 @@ public class CardController {
 			idUser = myUser.getId();
 		}
 		mav.addObject("userId", idUser);
-		return mav;
-	}
-	
-	@RequestMapping(value = "/danh-sach-diem-danh/{id}")
-	public ModelAndView showAttendancePage(@PathVariable Long id) {
-		ModelAndView mav = new ModelAndView("admin/listAttendance");
-		List<CardDTO> listAttdetdace = cardService.findByCustomer(id);
 		mav.addObject("attendanceId", listAttdetdace);
 		return mav;
 		

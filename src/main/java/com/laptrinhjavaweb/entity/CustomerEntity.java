@@ -36,7 +36,6 @@ public class CustomerEntity extends BaseEnetity {
 	@OneToMany(mappedBy = "customer")
 	private List<BillEntity> bill = new ArrayList<>();
 
-<<<<<<< HEAD
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "categoryid")
 	private CategoryEntity category;
@@ -48,8 +47,6 @@ public class CustomerEntity extends BaseEnetity {
 
 	@OneToMany(mappedBy = "customerEntity")
 	private List<CardEntity> listCard = new ArrayList<>();
-=======
->>>>>>> 01931e00168b8a9fc776bffab0e78775319707af
 	
 
 	public String getFullName() {

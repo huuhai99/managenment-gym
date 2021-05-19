@@ -35,6 +35,14 @@ public class CustomersController {
 	public ModelAndView usersPage() {
 		ModelAndView mav = new ModelAndView("admin/list-customers");
 		CustomerDto model = new CustomerDto();
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
 		model.setListResult(customerService.findByStatus());
 		mav.addObject("model", model);
 		return mav;
@@ -51,6 +59,15 @@ public class CustomersController {
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
+		
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
 		mav.addObject("model", model);
 		return mav;
 	}
@@ -59,6 +76,14 @@ public class CustomersController {
 			ModelAndView mav = new ModelAndView("admin/listStudent");
 			List<CustomerDto> lists = customerService.findByIdUser(id);
 			
+			MyUser myUser = SecurityUtils.getPrincipal();
+			Long idUser ;
+			if (myUser == null) {
+				idUser = null;
+			}else {
+				idUser = myUser.getId();
+			}
+			mav.addObject("userId", idUser);
 			mav.addObject("customers", lists);
 			return mav;
 		}

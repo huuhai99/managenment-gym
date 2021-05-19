@@ -78,7 +78,6 @@ public class CustomerServiceImpl implements ICustomerService {
 		
 	}
 	@Override
-<<<<<<< HEAD
 	public List<CustomerDto> findByIdUser(Long id) {
 		UserEntity entity = usersRepository.findOne(id);
 		List<CustomerEntity> listCustomer = customerRepository.findAll();
@@ -93,7 +92,7 @@ public class CustomerServiceImpl implements ICustomerService {
 			
 		}
 		return litsDtos;
-=======
+	}
 	public int getTotalCustomer() {
 			return (int) customerRepository.countByStatus((long) SystemConstant.ACTIVE_STATUS);
 	}
@@ -104,7 +103,6 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public int getTotalFemaleCustomer() {
 		return (int) customerRepository.countByStatusAndSex(((long) SystemConstant.ACTIVE_STATUS),"female");
->>>>>>> 01931e00168b8a9fc776bffab0e78775319707af
 	}
 
 

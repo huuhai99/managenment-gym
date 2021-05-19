@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.dto.BillDto;
+import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.service.IBillService;
 import com.laptrinhjavaweb.service.ICategoryService;
 import com.laptrinhjavaweb.util.MessageUtil;
+import com.laptrinhjavaweb.util.SecurityUtils;
 
 @Controller
 public class BillsController {
@@ -31,6 +33,15 @@ public class BillsController {
 	public ModelAndView billsPage() {
 		ModelAndView mav = new ModelAndView("admin/list-bills");
 		BillDto model = new BillDto();
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
+		
 		model.setListResult(billService.findAll());
 		mav.addObject("model", model);
 		return mav;
@@ -47,6 +58,14 @@ public class BillsController {
 			mav.addObject("message", message.get("message"));
 			mav.addObject("alert", message.get("alert"));
 		}
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
 		mav.addObject("model", model);
 		mav.addObject("categories", categoryService.findAll());
 		return mav;

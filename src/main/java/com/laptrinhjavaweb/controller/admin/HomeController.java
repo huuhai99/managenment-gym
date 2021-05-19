@@ -21,13 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
-import com.laptrinhjavaweb.dto.AbstractDTO;
 import com.laptrinhjavaweb.dto.JsonResultDto;
-<<<<<<< HEAD
 import com.laptrinhjavaweb.dto.MyUser;
-=======
 import com.laptrinhjavaweb.dto.ThongKeDto;
->>>>>>> 01931e00168b8a9fc776bffab0e78775319707af
 import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
@@ -61,7 +57,6 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("admin/home");
-<<<<<<< HEAD
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
 		if (myUser == null) {
@@ -70,13 +65,11 @@ public class HomeController {
 			idUser = myUser.getId();
 		}
 		mav.addObject("userId", idUser);
-=======
 		ThongKeDto thongKe = new ThongKeDto();
 		thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
 		thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
 		thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
 		mav.addObject("thongke", thongKe);
->>>>>>> 01931e00168b8a9fc776bffab0e78775319707af
 		return mav;
 	}
 
