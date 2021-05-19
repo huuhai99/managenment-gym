@@ -14,5 +14,4 @@ public interface ICustomerService {
 	int getTotalCustomer();
 	int getTotalMaleCustomer();
 	int getTotalFemaleCustomer();
-	
 }

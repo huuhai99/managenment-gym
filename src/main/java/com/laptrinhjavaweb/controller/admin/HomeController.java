@@ -66,12 +66,10 @@ public class HomeController {
 		}
 		mav.addObject("userId", idUser);
 		ThongKeDto thongKe = new ThongKeDto();
-<<<<<<< Updated upstream
 		thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
 		thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
 		thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
 		mav.addObject("thongke", thongKe);
-=======
 		if (time == null) {
 			thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
 			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
@@ -102,7 +100,6 @@ public class HomeController {
 			thongKe.setFemaleCustomer(3);
 			mav.addObject("thongke", thongKe);
 				}
->>>>>>> Stashed changes
 		return mav;
 	}
 
