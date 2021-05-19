@@ -10,6 +10,5 @@ public interface ICustomerService {
 	CustomerDto findById(long id);
 	CustomerDto save(CustomerDto dto);
 	void delete(long id);
-	
-	
+	List<CustomerDto> findByIdUser(Long id);
 }

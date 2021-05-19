@@ -22,11 +22,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.dto.JsonResultDto;
+import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.service.impl.CustomUserDetailsService;
 import com.laptrinhjavaweb.service.impl.EmailService;
+import com.laptrinhjavaweb.util.SecurityUtils;
 import com.laptrinhjavaweb.validator.UserValidator;
+
 
 @Controller( value = "homeControllerOfAdmin")
 public class HomeController {
@@ -49,6 +52,14 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("admin/home");
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
 		return mav;
 	}
 

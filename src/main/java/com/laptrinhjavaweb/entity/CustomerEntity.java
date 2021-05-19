@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -27,7 +26,7 @@ public class CustomerEntity extends BaseEnetity {
 
 	@Column(name = "numberphone")
 	private String numberPhone;
-
+ 
 	@Column(name = "note")
 	private String note;
 
@@ -37,9 +36,18 @@ public class CustomerEntity extends BaseEnetity {
 	@OneToMany(mappedBy = "customer")
 	private List<BillEntity> bill = new ArrayList<>();
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "categoryid")
 	private CategoryEntity category;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "userid")	
+	private UserEntity entity;
+	
+
+	@OneToMany(mappedBy = "customerEntity")
+	private List<CardEntity> listCard = new ArrayList<>();
+	
 
 	public String getFullName() {
 		return fullName;
@@ -104,5 +112,14 @@ public class CustomerEntity extends BaseEnetity {
 	public void setCategory(CategoryEntity category) {
 		this.category = category;
 	}
+
+	public UserEntity getEntity() {
+		return entity;
+	}
+
+	public void setEntity(UserEntity entity) {
+		this.entity = entity;
+	}
+	
 
 }

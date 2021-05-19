@@ -173,13 +173,13 @@
 					},
 					eventClick: function(event, jsEvent, view) {
 						 var date = new Date(event.start);
-					 alert(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear() + ' ' + date.getHours()+':'+ date.getMinutes()+ ':' +date.getSeconds());  
-					     /* jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
+					/*  alert(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear() + ' ' + date.getHours()+':'+ date.getMinutes()+ ':' +date.getSeconds());   */
+					   jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
 							jQuery('.event-title').html("<span>Ten: </span> "+event.title);
 							jQuery('.event-description').html("<span>Mo ta: </span> "+event.description);
 							jQuery('.event-start').html(((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear());
 							jQuery('.eventUrl').attr('href',event.url);
-							jQuery('#modal-view-event').modal(); */
+							jQuery('#modal-view-event').modal();
 					},
 				})
 			});

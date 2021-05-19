@@ -5,11 +5,11 @@ public class CardDTO extends AbstractDTO<CardDTO> {
 	private String issueDate;
 	private String validUpto;
 	private String status;
-	private Long idCustomer;
 	private String nameCustomer;
 	private String numberPhoneCustomer;
 	private String noteCustomer;
 	
+	private Long idCustomer;
 	private String title;
 	private String start;
 	private String end;

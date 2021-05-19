@@ -2,10 +2,11 @@ package com.laptrinhjavaweb.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -34,12 +35,12 @@ public class CardEntity extends BaseEnetity {
 	private String title;
 
 
-	@OneToOne
-	@JoinColumn(name = "customerid", referencedColumnName = "id")
+
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name="customerid")
 	private CustomerEntity customerEntity;
 
-
-
+	
 	
 	public Date getStartDate() {
 		return startDate;
@@ -73,13 +74,6 @@ public class CardEntity extends BaseEnetity {
 		this.description = description;
 	}
 
-	public CustomerEntity getCustomerEntity() {
-		return customerEntity;
-	}
-
-	public void setCustomerEntity(CustomerEntity customerEntity) {
-		this.customerEntity = customerEntity;
-	}
 
 	public String getTitle() {
 		return title;
@@ -87,6 +81,14 @@ public class CardEntity extends BaseEnetity {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public CustomerEntity getCustomerEntity() {
+		return customerEntity;
+	}
+
+	public void setCustomerEntity(CustomerEntity customerEntity) {
+		this.customerEntity = customerEntity;
 	}
 
 	

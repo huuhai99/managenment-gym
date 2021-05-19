@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+<%@ page import="com.laptrinhjavaweb.util.SecurityUtils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	
 		<ul class="sidebar navbar-nav">
@@ -35,7 +36,7 @@
 				</div></li>
 				
 				
-			<li class="nav-item"><a class="nav-link" href="<c:url value='/attendance'/>">
+			<li class="nav-item"><a class="nav-link" href="<c:url value='/danh-sach-hoc-vien/${userId}'/>">
 					<i class="fas fa-fw fa-chart-area"></i> <span>Điểm danh</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="tables.html">

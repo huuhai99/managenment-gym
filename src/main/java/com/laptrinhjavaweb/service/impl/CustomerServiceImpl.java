@@ -11,7 +11,9 @@ import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.CustomerConverter;
 import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.entity.CustomerEntity;
+import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.repository.CustomerRepository;
+import com.laptrinhjavaweb.repository.UserRepository;
 import com.laptrinhjavaweb.service.ICustomerService;
 
 @Service
@@ -22,6 +24,9 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	@Autowired
 	private CustomerConverter customerConverter;
+	
+	@Autowired
+	private UserRepository usersRepository;;
 	
 	@Override
 	public List<CustomerDto> findAll() {
@@ -71,6 +76,22 @@ public class CustomerServiceImpl implements ICustomerService {
 		oldCustomer.setStatus((long) 0);
 		customerRepository.save(oldCustomer);
 		
+	}
+	@Override
+	public List<CustomerDto> findByIdUser(Long id) {
+		UserEntity entity = usersRepository.findOne(id);
+		List<CustomerEntity> listCustomer = customerRepository.findAll();
+		List<CustomerDto> litsDtos = new ArrayList<>();
+		for (CustomerEntity item : listCustomer) {
+				UserEntity en = item.getEntity();
+				CustomerDto customerDto = customerConverter.toDto(item);
+				customerDto.setIdUser(en.getId());
+				if(customerDto.getIdUser() == entity.getId()) {
+					litsDtos.add(customerDto);
+			}
+			
+		}
+		return litsDtos;
 	}
 
 

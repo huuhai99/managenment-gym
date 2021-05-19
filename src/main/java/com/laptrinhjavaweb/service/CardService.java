@@ -10,4 +10,7 @@ public interface CardService {
 	public CardDTO findById(Long id);
 	public List<CardDTO> findAllCalendar();
 	public CardDTO saveCalander(CardDTO cardDTO);
+	
+	public List<CardDTO> findByCustomer(Long id);
+	
 }

@@ -16,8 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.laptrinhjavaweb.dto.CardDTO;
+import com.laptrinhjavaweb.dto.CustomerDto;
+import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.service.CardService;
 import com.laptrinhjavaweb.service.ICustomerService;
+import com.laptrinhjavaweb.util.SecurityUtils;
 
 
 
@@ -58,7 +61,26 @@ public class CardController {
 	@RequestMapping(value = "/attendance", method = RequestMethod.GET)
 	public ModelAndView addUserPage() {
 		ModelAndView mav = new ModelAndView("admin/calander");
+		
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/danh-sach-diem-danh/{id}")
+	public ModelAndView showAttendancePage(@PathVariable Long id) {
+		ModelAndView mav = new ModelAndView("admin/listAttendance");
+		List<CardDTO> listAttdetdace = cardService.findByCustomer(id);
+		mav.addObject("attendanceId", listAttdetdace);
+		return mav;
+		
+	}
+	
 
 }

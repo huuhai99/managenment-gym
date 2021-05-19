@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -40,6 +41,9 @@ public class UserEntity extends BaseEnetity {
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<>();
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "entity")
+	private List<CustomerEntity> listCustomer = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;
@@ -103,6 +107,14 @@ public class UserEntity extends BaseEnetity {
 
 	public void setConfirmToken(String confirmToken) {
 		this.confirmToken = confirmToken;
+	}
+
+	public List<CustomerEntity> getListCustomer() {
+		return listCustomer;
+	}
+
+	public void setListCustomer(List<CustomerEntity> listCustomer) {
+		this.listCustomer = listCustomer;
 	}
 
 

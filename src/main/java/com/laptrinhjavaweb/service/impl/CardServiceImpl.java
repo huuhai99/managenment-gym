@@ -15,14 +15,24 @@ import com.laptrinhjavaweb.converter.CardConverter;
 import com.laptrinhjavaweb.dto.CardDTO;
 import com.laptrinhjavaweb.entity.CardEntity;
 import com.laptrinhjavaweb.entity.CustomerEntity;
+import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.repository.CardRepository;
+import com.laptrinhjavaweb.repository.CustomerRepository;
+import com.laptrinhjavaweb.repository.UserRepository;
 import com.laptrinhjavaweb.service.CardService;
+import com.laptrinhjavaweb.service.UserService;
 
 @Service
 public class CardServiceImpl implements CardService {
 	
 	@Autowired
 	private CardRepository cardRepository;
+	
+	@Autowired
+	private UserRepository usersRepository;
+	
+	@Autowired
+	private CustomerRepository customerRepository;
 	
 	private CardConverter cardConverter = new CardConverter();
 
@@ -85,39 +95,21 @@ public class CardServiceImpl implements CardService {
 		return cardConverter.converterToDTO(entity);
 	}
 
-	
-//	@Autowired
-//	private  SessionFactory sessionFactory;
-//	
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<CardDTO> findAllCalander() {
-//		List<CardDTO> list = null;
-//		Session session = null;
-//			Transaction transaction = null;
-//			
-//		try {
-//			session = sessionFactory.openSession();
-//			transaction = session.beginTransaction();
-//			list = session.createQuery("select e.id as id, " 
-//					+ "e.status as title, "
-//					+ "DATE_FORMAT(e.startDate,'%y-%m-%d') as start, "
-//					+ "DATE_FORMAT(e.endDate,'%y-%m-%d') as end"
-//					+ "form card e")
-//					.setResultTransformer(Transformers.aliasToBean(CardDTO.class))
-//					.list();
-//			
-//			transaction.commit();
-//		} catch (Exception e) {
-//			list = null;
-//			if(transaction != null) {
-//				transaction.rollback();
-//			}
-//		}finally {
-//			session.close();
-//			
-//		}
-//		return list;
-//	}
+	@Override
+	public List<CardDTO> findByCustomer(Long id) {
+		CustomerEntity customerEntity = customerRepository.findOne(id);
+		List<CardEntity> listCard = cardRepository.findAll();
+		List<CardDTO> list = new ArrayList<>();
+		for (CardEntity item : listCard) {
+			CustomerEntity entity = item.getCustomerEntity();
+			CardDTO cardDTO = cardConverter.converterToDTO(item);
+			cardDTO.setIdCustomer(entity.getId());
+			if(cardDTO.getIdCustomer() == customerEntity.getId()) {
+				list.add(cardDTO);
+			}
+		}
+		return list;
+	}
+
 
 }

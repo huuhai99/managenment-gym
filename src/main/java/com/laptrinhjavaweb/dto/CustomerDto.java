@@ -8,6 +8,7 @@ public class CustomerDto extends AbstractDTO<CustomerDto>{
 	private String numberPhone;
 	private String note;
 	private int status;
+	private Long idUser;
 
 	public String getFullName() {
 		return fullName;
@@ -56,6 +57,14 @@ public class CustomerDto extends AbstractDTO<CustomerDto>{
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	

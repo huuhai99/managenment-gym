@@ -12,5 +12,4 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
 	List<CustomerEntity> findByStatus(Long status);
 	
 	
-	
 }
