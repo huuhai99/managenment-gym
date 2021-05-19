@@ -25,23 +25,24 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<div><h1 class="h3 mb-0 text-gray-800">Thống kê</h1>
-						<label for="">Choose a year:</label> <select id="">
-							<option value=""selected>Tất cả</option>
-							<option value="" >2021</option>
-							<option value="">2022</option>
-							<option value="" >2019</option>
+						<label for="">Thống kê theo:</label> <select id="">
+							<option value=""selected>Tháng</option>
+							<option value="" >Năm</option>
+							<option value="">Quý</option>
+							<option value="" >Ngày</option>
 						</select> </div>
 						
-						<a href="#"
+					<!-- 	<a href="#"
 							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-							class="fas fa-download fa-sm text-white-50"></i> Export Excel</a>
+							class="fas fa-download fa-sm text-white-50"></i> Export Excel</a> -->
+							
 					</div>
 
 					<!-- Content Row -->
 					<div class="row">
 
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
+						<div class="col-xl-4 col-md-6 mb-4">
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -49,7 +50,7 @@
 											<div
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												Tổng số khách hàng</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">${thongke.totalCustomer}</div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-user-friends fa-2x text-gray-300"></i>
@@ -60,7 +61,7 @@
 						</div>
 
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
+						<div class="col-xl-4 col-md-6 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -68,7 +69,7 @@
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1">
 												Khách hàng Nam</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">7</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">${thongke.maleCustomer}</div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-male fa-2x text-gray-300"></i>
@@ -79,7 +80,7 @@
 						</div>
 
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
+						<div class="col-xl-4 col-md-6 mb-4">
 							<div class="card border-left-info shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
@@ -89,31 +90,12 @@
 												hàng Nữ</div>
 											<div class="row no-gutters align-items-center">
 												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">3</div>
+													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">${thongke.femaleCustomer}</div>
 												</div>
 											</div>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-female fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pending Requests Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-												Tổng Thu</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">1800$</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
 										</div>
 									</div>
 								</div>
@@ -125,7 +107,7 @@
                     <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Biểu Đồ</h1>
                     <!-- Content Row -->
                     <div class="row">
 
@@ -136,15 +118,12 @@
                             <!-- Bar Chart -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Doanh Thu</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
                                         <canvas id="myBarChart"></canvas>
                                     </div>
-                                    <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
                                 </div>
                             </div>
 
@@ -155,16 +134,13 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Lớp Học</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
-                                    <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
                                 </div>
                             </div>
                         </div>
@@ -182,27 +158,23 @@
 							cellspacing="0">
 							<thead>
 								<tr>
-									<th>IdBill</th>
-									<th>IdCustomer</th>
-									<th>Content</th>
-									<th>Money</th>
-									<th>CreateDate</th>
-									<th>CreateBy</th>
-									<th>ModifiledDate</th>
-									<th>ModifiledBy</th>
+									<th>Id</th>
+									<th>FullName</th>
+									<th>Sex</th>
+									<th>PhoneNumber</th>
+									<th>Birthday</th>
+									<th>Note</th>
 									<th>Manipulationc</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
-									<th>IdBill</th>
-									<th>IdCustomer</th>
-									<th>Content</th>
-									<th>Money</th>
-									<th>CreateDate</th>
-									<th>CreateBy</th>
-									<th>ModifiledDate</th>
-									<th>ModifiledBy</th>
+									<th>Id</th>
+									<th>FullName</th>
+									<th>Sex</th>
+									<th>PhoneNumber</th>
+									<th>Birthday</th>
+									<th>Note</th>
 									<th>Manipulationc</th>
 								</tr>
 							</tfoot>
@@ -210,20 +182,17 @@
 								<c:forEach var="item" items="${model.listResult}">
 									<tr>
 										<td>${item.id}</td>
-										<td>${item.idCustomer}</td>
-										<td>${item.content}</td> 
-										<td>${item.money}</td> 
-										<td>${item.createdDate}</td> 
-										<td>${item.createdBy}</td> 
-										<td>${item.modifiedDate}</td> 
-										<td>${item.modifiedBy}</td> 
+										<td>${item.fullName}</td>
+										<td>${item.sex}</td> 
+										<td>${item.numberPhone}</td> 
+										<td>${item.birthday}</td> 
+										<td>${item.note}</td> 
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>
 								</c:forEach>
-													
 							</tbody>
 						</table>
 					</div>
@@ -280,7 +249,7 @@
   var myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ["Blue", "Red", "Yellow"],
+      labels: ["Yoga", "Gym", "Aerobic"],
       datasets: [{
         data: [300,50,100],
         backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
@@ -298,26 +267,27 @@
     var massPopChart = new Chart(myChart, {
       type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        labels:['1', '2', '3', '4', '5', '6'],
         datasets:[{
-          label:'Population',
+          label:'Doanh thu',
           data:[
-            617594,
-            181045,
-            153060,
-            106519,
-            105162,
-            95072
+            100,
+            200,
+            300,
+            250,
+            150,
+            200
           ],
           //backgroundColor:'green',
           backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
             'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
           ],
           borderWidth:1,
           borderColor:'#777',
@@ -328,7 +298,7 @@
       options:{
         title:{
           display:true,
-          text:'Largest Cities In Massachusetts',
+          text:'Doanh Thu Theo Tháng',
           fontSize:25
         },
         legend:{

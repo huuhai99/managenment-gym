@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.transaction.Transactional;
@@ -41,6 +42,15 @@ public class CategoryServiceImpl implements ICategoryService {
 			status.put(item.toString(), item.getStatusValue());
 		}
 		return status;
+	}
+	@Override
+	public Map<Long, String> findAll() {
+		Map<Long, String> result = new HashMap<>();
+		List<CategoryEntity> entities = categoryRepository.findAll();
+		for (CategoryEntity item: entities) {
+			result.put(item.getId(), item.getName());
+		}
+		return result;
 	}
 
 }
