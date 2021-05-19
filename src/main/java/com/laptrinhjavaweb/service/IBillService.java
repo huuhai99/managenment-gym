@@ -3,7 +3,6 @@ package com.laptrinhjavaweb.service;
 import java.util.List;
 
 import com.laptrinhjavaweb.dto.BillDto;
-import com.laptrinhjavaweb.dto.CustomerDto;
 
 public interface IBillService {
 	List<BillDto> findAll();

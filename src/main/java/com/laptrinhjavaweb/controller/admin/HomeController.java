@@ -21,8 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
+import com.laptrinhjavaweb.dto.AbstractDTO;
 import com.laptrinhjavaweb.dto.JsonResultDto;
+import com.laptrinhjavaweb.dto.ThongKeDto;
 import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.service.impl.CustomUserDetailsService;
 import com.laptrinhjavaweb.service.impl.EmailService;
@@ -46,9 +49,17 @@ public class HomeController {
 	@Autowired
 	private BCryptPasswordEncoder bCyptPass;
 	
+	@Autowired
+	private ICustomerService customerService;
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("admin/home");
+		ThongKeDto thongKe = new ThongKeDto();
+		thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
+		thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
+		thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
+		mav.addObject("thongke", thongKe);
 		return mav;
 	}
 

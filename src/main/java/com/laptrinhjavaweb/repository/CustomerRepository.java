@@ -10,7 +10,8 @@ import com.laptrinhjavaweb.entity.CustomerEntity;
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 	List<CustomerEntity> findByStatus(Long status);
-	
+	int countByStatus(Long status);
+	int countByStatusAndSex(Long status, String sex);
 	
 	
 }

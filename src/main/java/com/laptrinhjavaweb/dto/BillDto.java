@@ -3,7 +3,33 @@ package com.laptrinhjavaweb.dto;
 public class BillDto extends AbstractDTO<BillDto>{
 
 	private Long idCustomer;
-	private String content;
+	private Long categoryId;
+	private String categoryName;
+	private String note;
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
 	private String money;
 	private int status;
 
@@ -19,13 +45,6 @@ public class BillDto extends AbstractDTO<BillDto>{
 		this.idCustomer = idCustomer;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
 
 	public String getMoney() {
 		return money;

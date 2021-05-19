@@ -72,6 +72,18 @@ public class CustomerServiceImpl implements ICustomerService {
 		customerRepository.save(oldCustomer);
 		
 	}
+	@Override
+	public int getTotalCustomer() {
+			return (int) customerRepository.countByStatus((long) SystemConstant.ACTIVE_STATUS);
+	}
+	@Override
+	public int getTotalMaleCustomer() {
+		return (int) customerRepository.countByStatusAndSex(((long) SystemConstant.ACTIVE_STATUS),"male");
+	}
+	@Override
+	public int getTotalFemaleCustomer() {
+		return (int) customerRepository.countByStatusAndSex(((long) SystemConstant.ACTIVE_STATUS),"female");
+	}
 
 
 	

@@ -10,7 +10,7 @@
 
 <meta charset="UTF-8">
 
-<title>Danh Sách</title>
+<title>Danh Sách Hóa Đơn</title>
 
 </head>
 
@@ -47,7 +47,7 @@
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Khách Hàng</h6>
+					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Hóa Đơn</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -57,12 +57,8 @@
 								<tr>
 									<th>IdBill</th>
 									<th>IdCustomer</th>
-									<th>Content</th>
+									<th>Category</th>
 									<th>Money</th>
-									<th>CreateDate</th>
-									<th>CreateBy</th>
-									<th>ModifiledDate</th>
-									<th>ModifiledBy</th>
 									<th>Manipulationc</th>
 								</tr>
 							</thead>
@@ -70,12 +66,8 @@
 								<tr>
 									<th>IdBill</th>
 									<th>IdCustomer</th>
-									<th>Content</th>
+									<th>Category</th>
 									<th>Money</th>
-									<th>CreateDate</th>
-									<th>CreateBy</th>
-									<th>ModifiledDate</th>
-									<th>ModifiledBy</th>
 									<th>Manipulationc</th>
 								</tr>
 							</tfoot>
@@ -84,12 +76,8 @@
 									<tr>
 										<td>${item.id}</td>
 										<td>${item.idCustomer}</td>
-										<td>${item.content}</td> 
-										<td>${item.money}</td> 
-										<td>${item.createdDate}</td> 
-										<td>${item.createdBy}</td> 
-										<td>${item.modifiedDate}</td> 
-										<td>${item.modifiedBy}</td> 
+										<td>${item.categoryName}</td> 
+										<td>${item.money}$</td> 
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
@@ -101,113 +89,11 @@
 									<td>1</td>
 									<td>gym</td>
 									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
 									<td>
 									<i class="fas fa-trash-alt" style="color: red;"></i>
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>
-								<tr>
-									<td>6</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>	
-								<tr>
-									<td>9</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>11</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>12</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>2011/04/25</td>
-									<td>admin</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>						
 							</tbody>
 						</table>
 					</div>

@@ -13,8 +13,10 @@ import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BillConverter;
 import com.laptrinhjavaweb.dto.BillDto;
 import com.laptrinhjavaweb.entity.BillEntity;
+import com.laptrinhjavaweb.entity.CategoryEntity;
 import com.laptrinhjavaweb.entity.CustomerEntity;
 import com.laptrinhjavaweb.repository.BillRepository;
+import com.laptrinhjavaweb.repository.CategoryRepository;
 import com.laptrinhjavaweb.repository.CustomerRepository;
 import com.laptrinhjavaweb.service.IBillService;
 
@@ -26,6 +28,9 @@ public class BillServiceImpl implements IBillService {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	@Autowired
 	private BillConverter billConverter;
@@ -73,12 +78,16 @@ public class BillServiceImpl implements IBillService {
 	public BillDto save(BillDto dto) {
 		BillEntity billEntity = new BillEntity();
 		CustomerEntity customerEntity = customerRepository.findOne(dto.getIdCustomer());
-		billEntity.setCustomer(customerEntity);
+		CategoryEntity categoryEntity = categoryRepository.findOne(dto.getCategoryId());
 		if (dto.getId() != null) {
 			BillEntity oldBill = billRepository.findOne(dto.getId());
+			oldBill.setCategory(categoryEntity);
+			oldBill.setCustomer(customerEntity);
 			billEntity = billConverter.toEntity(oldBill, dto);
 		} else {
 			billEntity = billConverter.toEntity(dto);
+			billEntity.setCustomer(customerEntity);
+			billEntity.setCategory(categoryEntity);
 			billEntity.setStatus((long) 1);
 		}
 		return billConverter.toDto(billRepository.save(billEntity));

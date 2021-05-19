@@ -37,9 +37,7 @@ public class CustomerEntity extends BaseEnetity {
 	@OneToMany(mappedBy = "customer")
 	private List<BillEntity> bill = new ArrayList<>();
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	@JoinColumn(name = "categoryid")
-	private CategoryEntity category;
+	
 
 	public String getFullName() {
 		return fullName;
@@ -97,12 +95,6 @@ public class CustomerEntity extends BaseEnetity {
 		this.bill = bill;
 	}
 
-	public CategoryEntity getCategory() {
-		return category;
-	}
-
-	public void setCategory(CategoryEntity category) {
-		this.category = category;
-	}
+	
 
 }

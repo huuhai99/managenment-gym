@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.laptrinhjavaweb.dto.BillDto;
-import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.service.IBillService;
-import com.laptrinhjavaweb.service.ICustomerService;
 
 @RestController
 public class BillAPI {
 	
 	@Autowired
-	private IBillService customerService;
+	private IBillService billService;
+	
 	
 	@PostMapping("/api/bill")
 	public BillDto createBill(@RequestBody BillDto billDTO) {
@@ -30,6 +29,6 @@ public class BillAPI {
 	
 	@DeleteMapping("/api/bill")
 	public void deleteBill(@RequestBody long id) {
-		customerService.delete(id);
+		billService.delete(id);
 	}
 }

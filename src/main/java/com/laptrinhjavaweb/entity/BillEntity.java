@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,12 +13,21 @@ import javax.persistence.Table;
 public class BillEntity extends BaseEnetity {
 	
 	
-	@Column(name = "content", columnDefinition = "TEXT")
-	private String content;
 	
 	@Column(name = "money")
 	private String money;
 	
+	@Column(name = "note")
+	private String note;
+	
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
 	@Column(name = "status")
 	private Long status;
 	
@@ -25,6 +35,18 @@ public class BillEntity extends BaseEnetity {
     @JoinColumn(name = "customerid")
     private CustomerEntity customer;
 	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@JoinColumn(name = "categoryid")
+	private CategoryEntity category;
+	
+	public CategoryEntity getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
+	}
+
 	public String getMoney() {
 		return money;
 	}
@@ -49,13 +71,6 @@ public class BillEntity extends BaseEnetity {
 		this.customer = customer;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
 
 	
 }

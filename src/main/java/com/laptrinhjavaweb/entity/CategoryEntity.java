@@ -20,7 +20,7 @@ public class CategoryEntity extends BaseEnetity {
 	private String status;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	private List<CustomerEntity> listCustomer = new ArrayList<>();
+	private List<BillEntity> listBill = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -38,12 +38,14 @@ public class CategoryEntity extends BaseEnetity {
 		this.status = status;
 	}
 
-	public List<CustomerEntity> getListCustomer() {
-		return listCustomer;
+	public List<BillEntity> getListBill() {
+		return listBill;
 	}
 
-	public void setListCustomer(List<CustomerEntity> listCustomer) {
-		this.listCustomer = listCustomer;
+	public void setListBill(List<BillEntity> listBill) {
+		this.listBill = listBill;
 	}
+
+	
 
 }

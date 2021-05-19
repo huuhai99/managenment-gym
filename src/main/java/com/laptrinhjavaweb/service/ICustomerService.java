@@ -10,6 +10,9 @@ public interface ICustomerService {
 	CustomerDto findById(long id);
 	CustomerDto save(CustomerDto dto);
 	void delete(long id);
+	int getTotalCustomer();
+	int getTotalMaleCustomer();
+	int getTotalFemaleCustomer();
 	
 	
 }

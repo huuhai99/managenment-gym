@@ -138,54 +138,6 @@
 									<i class="fas fa-edit" style="color: green;"></i>
 									</td>
 								</tr>	
-								<tr>
-									<td>9</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>11</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
-								<tr>
-									<td>12</td>
-									<td>Garrett Winters</td>
-									<td>Male</td>
-									<td>0123456789</td>
-									<td>2011/04/25</td>
-									<td></td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>						
 							</tbody>
 						</table>
 					</div>
