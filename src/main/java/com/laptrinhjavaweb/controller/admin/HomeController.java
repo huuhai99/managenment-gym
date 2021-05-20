@@ -55,7 +55,10 @@ public class HomeController {
 	private ICustomerService customerService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView homePage(@RequestParam(value = "time", required = false) String time) {
+	public ModelAndView homePage(@RequestParam(value = "time", required = false) String time,
+			@RequestParam(value = "year", required = false) String year,
+			@RequestParam(value = "month", required = false) String month,
+			@RequestParam(value = "day", required = false) String day) {
 		ModelAndView mav = new ModelAndView("admin/home");
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
@@ -66,40 +69,31 @@ public class HomeController {
 		}
 		mav.addObject("userId", idUser);
 		ThongKeDto thongKe = new ThongKeDto();
-		thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
-		thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
-		thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
-		mav.addObject("thongke", thongKe);
+		
 		if (time == null) {
-			thongKe.setTotalCustomer((int)customerService.getTotalCustomer());
-			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer());
-			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer());
+			thongKe.setTotalCustomer((int)customerService.getTotalCustomer("nam","2021","1","1"));
+			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer("nam","2021","1","1"));
+			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer("nam","2021","1","1"));
 			mav.addObject("thongke", thongKe);
 		}
 		else if(time.equals("ngay")){
-			thongKe.setTotalCustomer(2);
-			thongKe.setMaleCustomer(1);
-			thongKe.setFemaleCustomer(1);
+			thongKe.setTotalCustomer((int)customerService.getTotalCustomer(time,year,month,day));
+			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer(time,year,month,day));
+			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer(time,year,month,day));
 			mav.addObject("thongke", thongKe);
 		}
 		else if(time.equals("thang")){
-			thongKe.setTotalCustomer(3);
-			thongKe.setMaleCustomer(2);
-			thongKe.setFemaleCustomer(1);
+			thongKe.setTotalCustomer((int)customerService.getTotalCustomer(time,year,month,"1"));
+			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer(time,year,month,"1"));
+			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer(time,year,month,"1"));
 			mav.addObject("thongke", thongKe);
 				}
 		else if(time.equals("nam")){
-			thongKe.setTotalCustomer(4);
-			thongKe.setMaleCustomer(2);
-			thongKe.setFemaleCustomer(2);
+			thongKe.setTotalCustomer((int)customerService.getTotalCustomer("nam",year,"1","1"));
+			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer("nam",year,"1","1"));
+			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer("nam",year,"1","1"));
 			mav.addObject("thongke", thongKe);
 		}
-		else if(time.equals("quy")){
-			thongKe.setTotalCustomer(5);
-			thongKe.setMaleCustomer(2);
-			thongKe.setFemaleCustomer(3);
-			mav.addObject("thongke", thongKe);
-				}
 		return mav;
 	}
 

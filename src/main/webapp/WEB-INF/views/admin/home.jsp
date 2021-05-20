@@ -11,6 +11,12 @@
 
 <title>Home Page</title>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+var today = new Date();
+var day = today.getDate();
+var month = today.getMonth()+1;
+var year = today.getFullYear();
+</script>
 </head>
 
 <body>
@@ -41,10 +47,9 @@
 				aria-expanded="false"> <i ></i> <span>Thống kê theo</span>
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a  class="dropdown-item" href="<c:url value='/home?time=ngay'/>">Ngày</a> 
-					<a class="dropdown-item" href="<c:url value='/home?time=thang'/>">Tháng</a> 
-					<a class="dropdown-item" href="<c:url value='/home?time=nam'/>">Năm</a> 
-					<a class="dropdown-item" href="<c:url value='/home?time=quy'/>">Quý</a> 
+					<a  class="dropdown-item" href="<c:url value='/home?time=ngay&year=2021&month=5&day=28'/>">Ngày</a> 
+					<a class="dropdown-item" href="<c:url value='/home?time=thang&year=2021&month=5'/>">Tháng</a> 
+					<a class="dropdown-item" href="<c:url value='/home?time=nam&year=2021'/>">Năm</a> 
 						
 				</div>
 				</li>

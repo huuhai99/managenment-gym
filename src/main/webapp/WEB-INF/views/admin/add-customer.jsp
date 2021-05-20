@@ -47,7 +47,7 @@
 						<label class="w3-validate">Male</label>
 						<form:radiobutton path = "sex" value = "Male" />
 						<label class="w3-validate">Female</label>
-						<form:radiobutton path = "sex" value = "Famale" />
+						<form:radiobutton path = "sex" value = "Female" />
 					</div>
 				</div>
 				<div class="form-group row">

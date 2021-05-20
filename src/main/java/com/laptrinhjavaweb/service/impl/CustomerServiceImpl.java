@@ -93,16 +93,106 @@ public class CustomerServiceImpl implements ICustomerService {
 		}
 		return litsDtos;
 	}
-	public int getTotalCustomer() {
-			return (int) customerRepository.countByStatus((long) SystemConstant.ACTIVE_STATUS);
+	public int getTotalCustomer(String time,String year, String month, String day) {
+		List<CustomerDto> models = new ArrayList<>();
+		Long y = Long.parseLong(year);
+		Long m = Long.parseLong(month);
+		Long d = Long.parseLong(day);
+		if (time == null) {
+			models = findByStatusAndDate(y);
+		}
+		else if(time.equals("ngay")){
+			models = findByStatusAndDate(y,m,d);
+		}
+		else if(time.equals("thang")){
+			models = findByStatusAndDate(y,m);
+				}
+		else if(time.equals("nam")){
+			models = findByStatusAndDate(y);
+		}
+		return models.size();
 	}
 	@Override
-	public int getTotalMaleCustomer() {
-		return (int) customerRepository.countByStatusAndSex(((long) SystemConstant.ACTIVE_STATUS),"male");
+	public int getTotalMaleCustomer(String time,String year, String month, String day) {
+		Long y = Long.parseLong(year);
+		Long m = Long.parseLong(month);
+		Long d = Long.parseLong(day);
+		int sum=0;
+		List<CustomerDto> models = new ArrayList<>();
+		if (time == null) {
+			models = findByStatusAndDate(y);
+		}
+		else if(time.equals("ngay")){
+			models = findByStatusAndDate(y,m,d);
+		}
+		else if(time.equals("thang")){
+			models = findByStatusAndDate(y,m);
+				}
+		else if(time.equals("nam")){
+			models = findByStatusAndDate(y);
+		}
+		for(int i=0;i<models.size();i++) {
+			if(models.get(i).getSex().equals("Male")) {
+				sum++;
+			}
+		}
+		return sum;
 	}
 	@Override
-	public int getTotalFemaleCustomer() {
-		return (int) customerRepository.countByStatusAndSex(((long) SystemConstant.ACTIVE_STATUS),"female");
+	public int getTotalFemaleCustomer(String time,String year, String month, String day) {
+		Long y = Long.parseLong(year);
+		Long m = Long.parseLong(month);
+		Long d = Long.parseLong(day);
+		int sum=0;
+		List<CustomerDto> models = new ArrayList<>();
+		if (time == null) {
+			models = findByStatusAndDate(y);
+		}
+		else if(time.equals("ngay")){
+			models = findByStatusAndDate(y,m,d);
+		}
+		else if(time.equals("thang")){
+			models = findByStatusAndDate(y,m);
+				}
+		else if(time.equals("nam")){
+			models = findByStatusAndDate(y);
+		}
+		for(int i=0;i<models.size();i++) {
+			if(models.get(i).getSex().equals("Female")) {
+				sum++;
+			}
+		}
+		return sum;
+	}
+	@Override
+	public List<CustomerDto> findByStatusAndDate( Long year) {
+		List<CustomerDto> models = new ArrayList<>();
+		List<CustomerEntity> entities = customerRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS,year);
+		for (CustomerEntity item: entities) {
+			CustomerDto customerDTO = customerConverter.toDto(item);
+			models.add(customerDTO);
+		}
+		return models;
+	}
+	@Override
+	public List<CustomerDto> findByStatusAndDate( Long year, Long month) {
+		List<CustomerDto> models = new ArrayList<>();
+		List<CustomerEntity> entities = customerRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS, year, month);
+		for (CustomerEntity item: entities) {
+			CustomerDto customerDTO = customerConverter.toDto(item);
+			models.add(customerDTO);
+		}
+		return models;
+	}
+	@Override
+	public List<CustomerDto> findByStatusAndDate( Long year, Long month, Long day) {
+		List<CustomerDto> models = new ArrayList<>();
+		List<CustomerEntity> entities = customerRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS, year, month,day);
+		for (CustomerEntity item: entities) {
+			CustomerDto customerDTO = customerConverter.toDto(item);
+			models.add(customerDTO);
+		}
+		return models;
 	}
 
 
