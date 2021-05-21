@@ -174,7 +174,7 @@ var year = today.getFullYear();
                     <!-- End of chart Content -->
                     <div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Khách Hàng</h6>
+					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Khách Hàng Thân Thiết</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">

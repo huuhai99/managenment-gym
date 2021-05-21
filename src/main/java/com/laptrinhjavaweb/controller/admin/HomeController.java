@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.controller.admin;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,10 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
+import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.dto.JsonResultDto;
 import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.dto.ThongKeDto;
 import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.service.IBillService;
 import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.service.impl.CustomUserDetailsService;
@@ -58,6 +61,9 @@ public class HomeController {
 	
 	@Autowired
 	private ICustomerService customerService;
+	
+	@Autowired
+	private IBillService billService;
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView homePage(@RequestParam(value = "time", required = false) String time,
@@ -127,6 +133,17 @@ public class HomeController {
 			thongKe.setDatasOfPieChart(pie);
 			mav.addObject("thongke", thongKe);
 		}
+		
+		CustomerDto model = new CustomerDto();
+		List<CustomerDto> list =customerService.findByStatus();
+		List<CustomerDto> listResult = new ArrayList<CustomerDto>();
+		for(int i=0;i<list.size();i++) {
+			if(billService.countByCustomerId(list.get(i).getId())>=6){
+				listResult.add(list.get(i));
+			}
+		}
+		model.setListResult(listResult);
+		mav.addObject("model", model);
 		return mav;
 	}
 

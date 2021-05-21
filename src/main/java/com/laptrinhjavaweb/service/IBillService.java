@@ -14,4 +14,5 @@ public interface IBillService {
 	List<BillDto> findByStatusAndDate( Long year, Long month);
 	List<BillDto> findByStatusAndDate( Long year, Long month, Long day);
 	int getTotalRevenue(String time,Long year, Long month, Long day);
+	int countByCustomerId(Long id);
 }

@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BillConverter;
 import com.laptrinhjavaweb.dto.BillDto;
-import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.entity.BillEntity;
 import com.laptrinhjavaweb.entity.CategoryEntity;
 import com.laptrinhjavaweb.entity.CustomerEntity;
@@ -157,5 +156,11 @@ public class BillServiceImpl implements IBillService {
 			sum+=Integer.parseInt(models.get(i).getMoney());
 		}
 		return sum;
+	}
+
+	@Override
+	public int countByCustomerId(Long id) {
+		int count = billRepository.countByCustomerId(id);
+		return count;
 	}
 }
