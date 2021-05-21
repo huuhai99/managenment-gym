@@ -8,13 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.dto.CustomerDto;
+import com.laptrinhjavaweb.dto.JsonResultDto;
 import com.laptrinhjavaweb.dto.MyUser;
+import com.laptrinhjavaweb.entity.CustomerEntity;
+import com.laptrinhjavaweb.entity.UserEntity;
 import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.util.MessageUtil;
@@ -47,6 +53,7 @@ public class CustomersController {
 		mav.addObject("model", model);
 		return mav;
 	}
+	
 	@RequestMapping(value = "/them-khach-hang", method = RequestMethod.GET)
 	public ModelAndView addUserPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/add-customer");
@@ -88,5 +95,12 @@ public class CustomersController {
 			return mav;
 		}
 	
-	
+	@PostMapping("/checkFullName")
+	@ResponseBody
+	public JsonResultDto<String> check(@RequestBody CustomerEntity customerEntity) {
+		if (customerService.existsByUserName(customerEntity.getFullName())) {
+			return new JsonResultDto<String>().error("Hợp lệ");
+		}
+		return new JsonResultDto<String>().success("Tên không tồn tại", null);
+	}
 }

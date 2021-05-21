@@ -194,6 +194,10 @@ public class CustomerServiceImpl implements ICustomerService {
 		}
 		return models;
 	}
+	@Override
+	public boolean existsByUserName(String fullName) {
+		return customerRepository.existsByFullName(fullName);
+	}
 
 
 	

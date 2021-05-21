@@ -48,6 +48,7 @@
           <div class="form-group">
             <label>Tên</label>
             <input type="text" class="form-control" name="title" id="title">
+            <span class = "status"></span>
           </div>
           <div class="form-group">
             <label>Mô tả</label>
@@ -71,7 +72,32 @@
 
 	<script> 
 	$( document ).ready(function() {
-		
+		 $("#title").blur(function fullNameExists() {
+				var fullName = $("#title").val();
+					var data = {};
+					data["fullName"] = fullName;
+					$.ajax({
+							type : "POST",
+							url : "/spring-mvc/checkFullName",
+							contentType : "application/json",
+							data : JSON.stringify(data),
+							success : function(result) {
+									if (result.code == 1) {
+										$(".status").html(result.msg);
+										$(".status").css('color','green'); 
+										$("#saveCalendar").prop('disabled', false);
+									} else {
+										$(".status").html(result.msg);
+									 	$(".status").css('color','red'); 
+										$("#saveCalendar").prop('disabled', true); 
+									}
+								},
+								error : function(error) {
+									swal("Thất bại","Sản phẩm vẫn an toàn","error");
+								}
+							});
+				
+			});
 	
 	});
 	

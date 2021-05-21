@@ -17,4 +17,5 @@ public interface ICustomerService {
 	int getTotalCustomer(String time,String year, String month, String day);
 	int getTotalMaleCustomer(String time,String year, String month, String day);
 	int getTotalFemaleCustomer(String time,String year, String month, String day);
+	boolean existsByUserName(String fullName);
 }

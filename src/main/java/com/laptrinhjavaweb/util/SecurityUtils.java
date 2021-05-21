@@ -12,10 +12,14 @@ public class SecurityUtils {
 	
 	//
 	public static MyUser getPrincipal() {
-		MyUser myUser = (MyUser) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
-        return myUser;
+		MyUser myUser = null;
+		try {
+			myUser= (MyUser) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+		} catch (Exception e) {
+			myUser = null;
+		}
+		return myUser;
     }
-	
 	@SuppressWarnings("unchecked")
 	public static List<String> getAuthorities() {
 		List<String> results = new ArrayList<>();

@@ -22,5 +22,6 @@ public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> 
 	List<CustomerEntity> findByStatusAndDate(Long status, Long year, Long month, Long day);
 	int countByStatus(Long status);
 	int countByStatusAndSex(Long status, String sex);
+	boolean existsByFullName(String fullName);
 	
 }
