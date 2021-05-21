@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.controller.admin;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.service.impl.CustomUserDetailsService;
 import com.laptrinhjavaweb.service.impl.EmailService;
+import com.laptrinhjavaweb.service.impl.ThongkeService;
 import com.laptrinhjavaweb.util.SecurityUtils;
 import com.laptrinhjavaweb.validator.UserValidator;
 
@@ -47,6 +49,9 @@ public class HomeController {
 	
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private ThongkeService thongkeService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCyptPass;
@@ -74,24 +79,52 @@ public class HomeController {
 			thongKe.setTotalCustomer((int)customerService.getTotalCustomer("nam","2021","1","1"));
 			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer("nam","2021","1","1"));
 			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer("nam","2021","1","1"));
+			thongKe.setLabelsOfBarChart(thongkeService.setLabelsOfBarChartByYear("2021"));
+			thongKe.setDatasOfBarChart(thongkeService.setDatasOfBarChartByYear("nam","2021"));
+			ArrayList<String> pie =new ArrayList<String>();
+			pie.add("20");
+			pie.add("15");
+			pie.add("10");
+			thongKe.setDatasOfPieChart(pie);
 			mav.addObject("thongke", thongKe);
 		}
 		else if(time.equals("ngay")){
 			thongKe.setTotalCustomer((int)customerService.getTotalCustomer(time,year,month,day));
 			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer(time,year,month,day));
 			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer(time,year,month,day));
+			thongKe.setLabelsOfBarChart(thongkeService.setLabelsOfBarChartByDay(day));
+			thongKe.setDatasOfBarChart(thongkeService.setDatasOfBarChartByDay(time,year,month,day));
+			ArrayList<String> pie =new ArrayList<String>();
+			pie.add("1");
+			pie.add("1");
+			pie.add("0");
+			thongKe.setDatasOfPieChart(pie);
 			mav.addObject("thongke", thongKe);
 		}
 		else if(time.equals("thang")){
 			thongKe.setTotalCustomer((int)customerService.getTotalCustomer(time,year,month,"1"));
 			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer(time,year,month,"1"));
 			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer(time,year,month,"1"));
+			thongKe.setDatasOfBarChart(thongkeService.setDatasOfBarChartByMonth(time,year,month));
+			thongKe.setLabelsOfBarChart(thongkeService.setLabelsOfBarChartByMonth(month));
+			ArrayList<String> pie =new ArrayList<String>();
+			pie.add("5");
+			pie.add("3");
+			pie.add("2");
+			thongKe.setDatasOfPieChart(pie);
 			mav.addObject("thongke", thongKe);
 				}
 		else if(time.equals("nam")){
 			thongKe.setTotalCustomer((int)customerService.getTotalCustomer("nam",year,"1","1"));
 			thongKe.setMaleCustomer((int)customerService.getTotalMaleCustomer("nam",year,"1","1"));
 			thongKe.setFemaleCustomer((int)customerService.getTotalFemaleCustomer("nam",year,"1","1"));
+			thongKe.setLabelsOfBarChart(thongkeService.setLabelsOfBarChartByYear(year));
+			thongKe.setDatasOfBarChart(thongkeService.setDatasOfBarChartByYear("nam",year));
+			ArrayList<String> pie =new ArrayList<String>();
+			pie.add("20");
+			pie.add("15");
+			pie.add("10");
+			thongKe.setDatasOfPieChart(pie);
 			mav.addObject("thongke", thongKe);
 		}
 		return mav;

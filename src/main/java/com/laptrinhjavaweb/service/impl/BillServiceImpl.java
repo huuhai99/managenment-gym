@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.BillConverter;
 import com.laptrinhjavaweb.dto.BillDto;
+import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.entity.BillEntity;
 import com.laptrinhjavaweb.entity.CategoryEntity;
 import com.laptrinhjavaweb.entity.CustomerEntity;
@@ -101,11 +102,60 @@ public class BillServiceImpl implements IBillService {
 		billRepository.save(oldBill);
 		
 	}
-	
-	
-	
-	
 
+	@Override
+	public List<BillDto> findByStatusAndDate(Long year) {
+		List<BillDto> models = new ArrayList<>();
+		List<BillEntity> entities = billRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS,year);
+		for (BillEntity item: entities) {
+			BillDto billDTO = billConverter.toDto(item);
+			models.add(billDTO);
+		}
+		return models;
+	}
 
-	
+	@Override
+	public List<BillDto> findByStatusAndDate(Long year, Long month) {
+		List<BillDto> models = new ArrayList<>();
+		List<BillEntity> entities = billRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS, year, month);
+		for (BillEntity item: entities) {
+			BillDto billDTO = billConverter.toDto(item);
+			models.add(billDTO);
+		}
+		return models;
+	}
+
+	@Override
+	public List<BillDto> findByStatusAndDate(Long year, Long month, Long day) {
+		List<BillDto> models = new ArrayList<>();
+		List<BillEntity> entities = billRepository.findByStatusAndDate((long) SystemConstant.ACTIVE_STATUS, year, month,day);
+		for (BillEntity item: entities) {
+			BillDto billDTO = billConverter.toDto(item);
+			models.add(billDTO);
+		}
+		return models;
+	}
+
+	@Override
+	public int getTotalRevenue(String time, Long year, Long month, Long day) {
+		int sum=0;
+		List<BillDto> models = new ArrayList<>();
+		
+		if (time == null) {
+			models = findByStatusAndDate(year);
+		}
+		else if(time.equals("ngay")){
+			models = findByStatusAndDate(year,month,day);
+		}
+		else if(time.equals("thang")){
+			models = findByStatusAndDate(year,month);
+				}
+		else if(time.equals("nam")){
+			models = findByStatusAndDate(year);
+		}
+		for(int i=0;i<models.size();i++) {
+			sum+=Integer.parseInt(models.get(i).getMoney());
+		}
+		return sum;
+	}
 }

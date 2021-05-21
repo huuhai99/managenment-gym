@@ -268,52 +268,39 @@ var year = today.getFullYear();
 			</div>
 		</div>
 	</div>
-<!-- 	<script>
-		$( "#thongkeSelect" )
-  		.change(function() {
-   		 var str = "";
-    		$( "#thongkeSelect option:selected" ).each(function() {
-    			str = $( "#thongkeSelect").text();
-    		  console.log($( "#thongkeSelect option:selected" ).text());
-   			 $("#txtTest").val( $( "#thongkeSelect option:selected" ).text() );
-    		});
-		  })
-  		.trigger( "change" );
-</script> -->
+
 	 <script>
   var ctx = document.getElementById("myPieChart");
+  var listDatas = ${thongke.datasOfPieChart};
   var myPieChart = new Chart(ctx, {
+  
     type: 'pie',
     data: {
       labels: ["Yoga", "Gym", "Aerobic"],
       datasets: [{
-        data: [300,50,100],
+        data: listDatas,
         backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
       }],
     },
   });
   </script>
   <script>
-    var myChart = document.getElementById('myBarChart').getContext('2d');
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
+  var myChart = document.getElementById('myBarChart').getContext('2d');
+	var listLabels = ${thongke.labelsOfBarChart};
+	var listDatas = ${thongke.datasOfBarChart};
+  // Global Options
+  Chart.defaults.global.defaultFontFamily = 'Lato';
+  Chart.defaults.global.defaultFontSize = 14;
+  Chart.defaults.global.defaultFontColor = '#777';
 
-    var massPopChart = new Chart(myChart, {
-      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:['1', '2', '3', '4', '5', '6'],
-        datasets:[{
-          label:'Doanh thu',
-          data:[
-            100,
-            200,
-            300,
-            250,
-            150,
-            200
-          ],
+  var massPopChart = new Chart(myChart, {
+    type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+    data:{
+      /* labels:['Yoga', 'Gym', 'Aerobic','Yoga', 'Gym', 'Aerobic'], */
+      labels:listLabels,
+      datasets:[{
+        label:'Doanh thu',
+        data:listDatas,
           //backgroundColor:'green',
           backgroundColor:[
             'rgba(54, 162, 235, 0.6)',
@@ -332,11 +319,7 @@ var year = today.getFullYear();
         }]
       },
       options:{
-        title:{
-          display:true,
-          text:'Doanh Thu Theo Tháng',
-          fontSize:25
-        },
+       
         legend:{
           display:true,
           position:'right',
