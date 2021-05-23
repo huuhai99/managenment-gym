@@ -66,6 +66,8 @@
 									<th>IdCustomer</th>
 									<th>Category</th>
 									<th>Money</th>
+									<th>Ngày bắt đầu</th>
+									<th>Ngày kết thúc</th>
 									<th>Manipulationc</th>
 								</tr>
 							</thead>
@@ -75,6 +77,8 @@
 									<th>IdCustomer</th>
 									<th>Category</th>
 									<th>Money</th>
+									<th>Ngày bắt đầu</th>
+									<th>Ngày kết thúc</th>
 									<th>Manipulationc</th>
 								</tr>
 							</tfoot>
@@ -85,6 +89,8 @@
 										<td>${item.idCustomer}</td>
 										<td>${item.categoryName}</td> 
 										<td>${item.money}$</td> 
+										<td>${item.startDay}$</td> 
+										<td>${item.endDay}$</td> 
 									<td>
 									<button id="btnDelete_${item.id}" type="button" onclick="warningBeforeDelete(${item.id})" value="${item.id}"
 														class="dt-button buttons-html5 btn btn-white  btn-bold" data-toggle="tooltip" title='Xóa hóa đơn'>

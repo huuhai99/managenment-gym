@@ -8,6 +8,12 @@ public class BillDto extends AbstractDTO<BillDto>{
 	private String customerName;
 	
 	
+	@Override
+	public String toString() {
+		return "Thể loại: " + categoryName + ", ghi chú: " + note + ", ngày bắt đầu: " + startDay + ", ngày kết thúc: " + endDay
+				+ ", số tiền: " + money +  "$.";
+	}
+
 	public String getCustomerName() {
 		return customerName;
 	}

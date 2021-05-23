@@ -106,6 +106,7 @@ public class CustomersController {
 		}
 		mav.addObject("userId", idUser);
 		mav.addObject("model", model);
+		mav.addObject("listBill", listBill);
 		return mav;
 	}
 	@RequestMapping(value = "/danh-sach-hoc-vien/{id}", method = RequestMethod.GET)

@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3"></div>
-			<div class="col-lg-6">
+			<div class="col-lg-9">
 	<h1>Thông tin khách hàng</h1>
 	<table>
 	<tr>
@@ -37,13 +37,22 @@
 	<tr><td>Nhân viên quản lý: </td>
 	<td>${model.idUser } </td></tr>
 	<tr><td>Danh sách hóa đơn: </td>
-	<td>${model.idUser } </td></tr>
+	<td></td></tr>
+	
+	<c:forEach var="item" items="${listBill}">
+	<tr>
+	<td></td>
+	<td>${item.toString() } </td>
+	</tr>
+	
+								</c:forEach>
+	
 	</table>
 	<br>
 	<a href="danh-sach" class="btn btn-primary">Danh sách khách hàng</a>
 			
 			</div>
-			<div class="col-lg-3"></div>
+			
 		</div>
 	</div>
 </body>
