@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laptrinhjavaweb.dto.BillDto;
+import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.service.IBillService;
 import com.laptrinhjavaweb.service.ICategoryService;
+import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.util.MessageUtil;
 import com.laptrinhjavaweb.util.SecurityUtils;
 
@@ -22,6 +24,9 @@ import com.laptrinhjavaweb.util.SecurityUtils;
 public class BillsController {
 	@Autowired
 	private IBillService billService;
+	
+	@Autowired
+	private ICustomerService customerService;
 	
 	@Autowired
 	private ICategoryService categoryService;
@@ -78,9 +83,13 @@ public class BillsController {
 	@RequestMapping(value = "/them-xuat-hoa-don", method = RequestMethod.GET)
 	public ModelAndView exportPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request){
 		ModelAndView mav = new ModelAndView("admin/export-bill");
+		
 		BillDto model = new BillDto();
+		CustomerDto cus = new CustomerDto();
 		if (id != null) {
 			model = billService.findById(id);
+			cus=customerService.findById(model.getIdCustomer());
+			model.setCustomerFullName(cus.getFullName());
 		}
 		if (request.getParameter("message") != null) {
 			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));

@@ -28,41 +28,54 @@
 			<h2>Xuất hóa đơn</h2>
 			<br>
 		</div>
-		 <div class="col-lg-8 push-lg-4 personal-info">
-				
+		 <div class="col-lg-8 push-lg-4 personal-info" style="margin-left: 150px;">
+				 
+				 <input type="hidden" id="title" value="GYM TH"  />
+				 
 				<div class="form-group row">
 					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Tên Khách Hàng</label>
 					<div>
-           			 <input type="text" id="nameCustomer" value="${model.customerFullName}" placeholder="Enter your name" />
+           			 <input type="text" id="nameCustomer" value="${model.customerFullName}" disabled="disabled" style="width: 200px;" />
+       			 </div>
+				</div>
+				
+				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Thể Loại</label>
+					<div >
+					 <input type="text" id="nameCategory" value="${model.categoryName}" disabled="disabled" style="width: 200px;padding: 0px;" />
+				</div>
+				</div> 
+				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ngày bắt đầu</label>
+					<div >
+					 <input type="text" id="startDay" value="${model.startDay}" disabled="disabled" style="width: 200px;" />
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ngày kết thúc</label>
+					<div >
+					 <input type="text" id="endDay" value="${model.endDay}" disabled="disabled"  style="width: 200px;"/>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Tổng Tiền</label>
+					<div>
+           			 <input type="text" id="money" value="${model.money} VND" disabled="disabled" style="width: 200px;" />
        			 </div>
 				</div>
 				
 				<div class="form-group row">
 					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ghi chú</label>
 					<div>
-           			 <input type="text" id="note" value="${model.note}" placeholder="Enter your name" />
+           			 <input type="text" id="note" value="${model.note}" disabled="disabled" style="width: 200px;" />
        			 </div>
 				</div>
-				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Thể Loại</label>
-					<div class="col-lg-9">
-					 <input type="text" id="nameCategory" value="${model.categoryName}" placeholder="Enter your name" />
-				</div>
-				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Money</label>
-					<div class="col-lg-9">
-					
-					</div>
-				</div>
-				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Note</label>
-					<div class="col-lg-9">
-					</div>
-				</div>
-		</div> 
-         <div>
-            <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
-        </div>
+				
+				<div style="margin-left: 136px;">
+           	 <input type="button" id="bt" value="In Hóa Đơn" onclick="saveFile()" style="width: 125px;" />
+        		</div>
 	</div>
 
 <script>
@@ -71,20 +84,22 @@
 let saveFile = () => {
 	
     // Get the data from each element on the form.
-	const name = document.getElementById('note');
-  /*   const age = document.getElementById('txtAge');
-    const email = document.getElementById('txtEmail');
-    const country = document.getElementById('selCountry');
-    const msg = document.getElementById('msg'); */
+    const title = document.getElementById('title');
+	const name = document.getElementById('nameCustomer');
+    const nameCategory = document.getElementById('nameCategory');
+    const startDay = document.getElementById('startDay');
+    const endDay = document.getElementById('endDay');
+    const money = document.getElementById('money');
+    const msg = document.getElementById('note'); 
     
     // This variable stores all the data.
-    let data = 
-        '\r Name: ' + name.value ;
-        /* + ' \r\n ' + 
-        'Age: ' +age.value + ' \r\n ' + 
-        'Email: ' + email.value + ' \r\n ' + 
-        'Country: ' + country.value + ' \r\n ' + 
-        'Message: ' + msg.value; */
+    let data =
+        '\r Tên Khách Hàng: ' + name.value + ' \r\n ' + 
+        'Thể Loại: ' +nameCategory.value + ' \r\n ' + 
+        'Ngày Bắt Đầu: ' + startDay.value + ' \r\n ' + 
+        'Ngày Kết Thúc: ' + endDay.value + ' \r\n ' + 
+        'Tổng Tiền: ' + money.value + ' \r\n ' + 
+        'Ghi chú: ' + msg.value; 
     
     // Convert the text to BLOB.
     const textToBLOB = new Blob([data], { type: 'text/plain' });
