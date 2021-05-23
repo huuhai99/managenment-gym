@@ -15,10 +15,10 @@
             			<div class="form-tab">
 	            			<ul class="nav nav-pills nav-fill" role="tablist">
 							    <li class="nav-item">
-							        <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Sign In</a>
+							        <a class="nav-link active" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Đăng Nhập</a>
 							    </li>
 							    <li class="nav-item">
-							        <a class="nav-link " id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Register</a>
+							        <a class="nav-link " id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Đăng Ký</a>
 							    </li>
 							</ul>
 							<div class="tab-content">
@@ -47,11 +47,11 @@
 
 							    		<div class="form-footer">
 							    			<button type="submit" class="btn btn-outline-primary-2">
-			                					<span>LOG IN</span>
+			                					<span>Đăng Nhập</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
 
-											<a href="<c:url value='email'/>" class="forgot-link">Forgot Your Password?</a>
+											<a href="<c:url value='email'/>" class="forgot-link">Quên mật Khẩu?</a>
 							    		</div><!-- End .form-footer -->
 							    	</form>
 							    </div><!-- .End .tab-pane -->
@@ -118,7 +118,7 @@
 									<div class="form-footer">
 										<button type="submit" id="createUser"
 											class="btn btn-outline-primary-2">
-											<span>SIGN UP</span> <i class="icon-long-arrow-right"></i>
+											<span>Đăng ký</span> <i class="icon-long-arrow-right"></i>
 										</button>
 									</div>
 									<!-- End .form-footer -->
@@ -133,6 +133,46 @@
         
         
    <script>
+   $('#createUser').click(
+			function(e) {
+				e.preventDefault();
+				var data = {};
+				var formData = $('#formRegister').serializeArray();
+				$.each(formData, function(index, v) {
+					data["" + v.name + ""] = v.value;
+				});
+				var fullName = $('#fullName').val();
+				var userName = $('#userName').val();
+				var password = $('#password').val();
+				var email = $('#email').val();
+				var phoneNumber = $('#phoneNumber').val();
+				var address = $('#address').val();
+				var repeatPass = $('#repeatPass').val();
+				if (fullName != "" && userName != "" && password != ""
+						&& email != "" && phoneNumber != "" && address != ""
+						&& repeatPass != "") {
+					addingUser(data);
+				} else {
+					swal(" Đăng ký thất bại", " :)", "error");
+				}
+			});
+			
+			function addingUser(data) {
+				$.ajax({
+					type : "POST",
+					url : "${ApiUrl}",
+					data : JSON.stringify(data),
+					dataType : "json",
+					contentType : "application/json",
+					success : function(response) {
+						swal("Tài khoản đã được kích hoạt!", "Bạn hãy kiểm tra email để xác nhận", "success");
+					},
+					error : function(response) {
+						swal("Tài khoản đã được kích hoạt!", "Bạn hãy kiểm tra email để xác nhận", "success");
+					}
+				});
+			}
+   
 	$(document).ready(function() {
 						 $("#userName").blur(function userNameExists() {
 											var userName = $("#userName").val();

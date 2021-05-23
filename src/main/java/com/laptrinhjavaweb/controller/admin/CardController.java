@@ -77,7 +77,6 @@ public class CardController {
 		mav.addObject("userId", idUser);
 		mav.addObject("attendanceId", listAttdetdace);
 		return mav;
-		
 	}
 	
 

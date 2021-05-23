@@ -43,7 +43,7 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 		if (isAdmin(roles)) {
 			url = "/home";
 		} else if (isUser(roles)) {
-			url = "/attendance";
+			url = "/danh-sach-hoc-vien/"+ SecurityUtils.getPrincipal().getId() ;
 		}
 		return url;
 	}

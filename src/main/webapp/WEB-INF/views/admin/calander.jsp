@@ -23,6 +23,7 @@
 
 <!-- calendar modal -->
 <div id="modal-view-event" class="modal modal-top fade calendar-modal">
+
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-body">
@@ -54,10 +55,6 @@
             <label>Mô tả</label>
             <input type="text" class=" form-control"  name="description" id="description">
           </div>        
-          <!-- <div class="form-group">
-            <label>Event Description</label>
-            <textarea class="form-control" name="edesc"></textarea>
-          </div> -->
       </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary" id="saveCalendar" >Lưa</button>

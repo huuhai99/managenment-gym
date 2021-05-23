@@ -27,10 +27,6 @@
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="messagesDropdown">
-				<a class="dropdown-item" href="#">Action</a> <a
-					class="dropdown-item" href="#">Another action</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="#">Something else here</a>
 			</div></li>
 		<li class="nav-item dropdown no-arrow"><a
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
@@ -39,9 +35,6 @@
 		</a>
 			<div class="dropdown-menu dropdown-menu-right"
 				aria-labelledby="userDropdown">
-				<a class="dropdown-item" href="#">Settings</a> <a
-					class="dropdown-item" href="#">Activity Log</a>
-				<div class="dropdown-divider"></div>
 				<a class="dropdown-item" href="<c:url value='/login'/>" >Logout</a>
 			</div></li>
 	</ul>
