@@ -10,6 +10,7 @@ public interface IBillService {
 	BillDto findById(long id);
 	BillDto save(BillDto dto);
 	void delete(long id);
+	List<BillDto> findByCustomerId( Long id);
 	List<BillDto> findByStatusAndDate( Long year);
 	List<BillDto> findByStatusAndDate( Long year, Long month);
 	List<BillDto> findByStatusAndDate( Long year, Long month, Long day);

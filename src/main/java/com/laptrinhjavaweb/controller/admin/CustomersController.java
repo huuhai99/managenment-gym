@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.controller.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.laptrinhjavaweb.dto.BillDto;
 import com.laptrinhjavaweb.dto.CustomerDto;
 import com.laptrinhjavaweb.dto.JsonResultDto;
 import com.laptrinhjavaweb.dto.MyUser;
 import com.laptrinhjavaweb.entity.CustomerEntity;
-import com.laptrinhjavaweb.entity.UserEntity;
+import com.laptrinhjavaweb.service.IBillService;
 import com.laptrinhjavaweb.service.ICustomerService;
 import com.laptrinhjavaweb.service.UserService;
 import com.laptrinhjavaweb.util.MessageUtil;
@@ -30,6 +32,9 @@ import com.laptrinhjavaweb.util.SecurityUtils;
 public class CustomersController {
 	@Autowired
 	private ICustomerService customerService;
+	
+	@Autowired
+	private IBillService billService;
 	
 	@Autowired
 	private UserService userservice;
@@ -87,8 +92,10 @@ public class CustomersController {
 	public ModelAndView infoUserPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/info-customer");
 		CustomerDto model = new CustomerDto();
+		List<BillDto> listBill = new ArrayList<BillDto>();
 		if (id != null) {
 			model = customerService.findById(id);
+			listBill = billService.findByCustomerId(id);
 		}
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;

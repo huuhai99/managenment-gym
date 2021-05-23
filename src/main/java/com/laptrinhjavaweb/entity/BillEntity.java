@@ -20,6 +20,28 @@ public class BillEntity extends BaseEnetity {
 	@Column(name = "note")
 	private String note;
 	
+	@Column(name = "startday")
+	private String startDay;
+	
+	@Column(name = "endday")
+	private String endDay;
+	
+	public String getStartDay() {
+		return startDay;
+	}
+
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+
+	public String getEndDay() {
+		return endDay;
+	}
+
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+
 	public String getNote() {
 		return note;
 	}

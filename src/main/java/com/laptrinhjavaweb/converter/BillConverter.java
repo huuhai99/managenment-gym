@@ -16,6 +16,8 @@ public class BillConverter {
 		billDTO.setCategoryName((entity.getCategory().getName()));
 		billDTO.setMoney(entity.getMoney());
 		billDTO.setNote(entity.getNote());
+		billDTO.setStartDay(entity.getStartDay());
+		billDTO.setEndDay(entity.getEndDay());
 		return billDTO;
 	}
 	
@@ -23,12 +25,16 @@ public class BillConverter {
 		BillEntity result = new BillEntity();
 		result.setMoney(dto.getMoney());
 		result.setNote(dto.getNote());
+		result.setStartDay(dto.getStartDay());
+		result.setEndDay(dto.getEndDay());
 		return result;
 	}
 	
 	public BillEntity toEntity(BillEntity result, BillDto dto) {
 		result.setMoney(dto.getMoney());
 		result.setNote(dto.getNote());
+		result.setStartDay(dto.getStartDay());
+		result.setEndDay(dto.getEndDay());
 		return result;
 	}
 }
