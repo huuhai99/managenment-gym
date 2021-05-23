@@ -53,6 +53,18 @@
 					</div>
 				</div>
 				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ngày bắt đầu:</label>
+					<div class="col-lg-9">
+					<form:input path="startDay" cssClass="col-xs-10 col-sm-5"  />
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ngày kết thúc</label>
+					<div class="col-lg-9">
+					<form:input path="endDay" cssClass="col-xs-10 col-sm-5"  />
+					</div>
+				</div>
+				<div class="form-group row">
 					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Note</label>
 					<div class="col-lg-9">
 					<form:input path="note" cssClass="col-xs-10 col-sm-5"  />
