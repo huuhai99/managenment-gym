@@ -30,9 +30,14 @@ public class BillsController {
 	private MessageUtil messageUtil;
 
 	@RequestMapping(value = "/danh-sach-hoa-don", method = RequestMethod.GET)
-	public ModelAndView billsPage() {
+	public ModelAndView billsPage(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/list-bills");
 		BillDto model = new BillDto();
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
+		}
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
 		if (myUser == null) {
@@ -42,7 +47,7 @@ public class BillsController {
 		}
 		mav.addObject("userId", idUser);
 		
-		model.setListResult(billService.findAll());
+		model.setListResult(billService.findByStatus());
 		mav.addObject("model", model);
 		return mav;
 	}

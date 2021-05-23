@@ -15,7 +15,15 @@
 
 <!-- Custom styles for this template-->
 <link href="<c:url value='/template/admin/css/sb-admin.css'/>" rel="stylesheet" type="text/css">
+<!-- Bootstrap core JavaScript-->
+	<script src="<c:url value='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
+	<script src="<c:url value='/template/admin/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
 
+	<!-- Core plugin JavaScript-->
+	<script src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
+	<!-- sweetalert -->
+    <script src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
+    <link rel="stylesheet" href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css' />" />
 </head>
 <body id="page-top">
 
@@ -37,12 +45,7 @@
 		</a>
 	
 	
-	<!-- Bootstrap core JavaScript-->
-	<script src="<c:url value='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
-	<script src="<c:url value='/template/admin/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
-
-	<!-- Core plugin JavaScript-->
-	<script src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
+	
 
 	<!-- Page level plugin JavaScript-->
 	<script src="<c:url value='/template/admin/vendor/chart.js/Chart.min.js'/>"></script>

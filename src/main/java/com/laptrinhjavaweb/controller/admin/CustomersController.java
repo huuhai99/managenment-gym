@@ -38,9 +38,14 @@ public class CustomersController {
 	private MessageUtil messageUtil;
 
 	@RequestMapping(value = "/danh-sach", method = RequestMethod.GET)
-	public ModelAndView usersPage() {
+	public ModelAndView usersPage(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/list-customers");
 		CustomerDto model = new CustomerDto();
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
+		}
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
 		if (myUser == null) {
@@ -67,6 +72,24 @@ public class CustomersController {
 			mav.addObject("alert", message.get("alert"));
 		}
 		
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
+		mav.addObject("model", model);
+		return mav;
+	}
+	@RequestMapping(value = "/thong-tin-khach-hang", method = RequestMethod.GET)
+	public ModelAndView infoUserPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("admin/info-customer");
+		CustomerDto model = new CustomerDto();
+		if (id != null) {
+			model = customerService.findById(id);
+		}
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
 		if (myUser == null) {

@@ -1,7 +1,9 @@
 <%@include file="/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@include file="/common/taglib.jsp"%>
+<c:url var="billAPI" value="/api/bill" />
+<c:url var="billURL" value="/danh-sach-hoa-don"/>
 <!DOCTYPE html>
 
 <html>
@@ -19,6 +21,11 @@
 
 
 <div id="content-wrapper" class="d-flex flex-column">
+<div class="col-lg-12">
+			<c:if test="${not empty message}">
+				<div class="alert alert-${alert}">${message}</div>
+			</c:if>
+		</div>
 			<!-- Main Content -->
 			<div class="container-fluid">
 
@@ -79,21 +86,21 @@
 										<td>${item.categoryName}</td> 
 										<td>${item.money}$</td> 
 									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
+									<button id="btnDelete_${item.id}" type="button" onclick="warningBeforeDelete(${item.id})" value="${item.id}"
+														class="dt-button buttons-html5 btn btn-white  btn-bold" data-toggle="tooltip" title='Xóa hóa đơn'>
+																<span>
+																	<i class="fas fa-trash-alt" style="color: red;"></i>
+																</span>
+												</button>
+									<c:url var="updateBillURL" value="/them-hoa-don">
+										<c:param name="id" value="${item.id}"/>															
+																</c:url>																
+										<a class="btn btn-sm  btn-edit"  data-toggle="tooltip"
+											title="Cập nhật hóa đơn" href='${updateBillURL}'><i class="fas fa-edit" style="color: green;"></i>
+											</a>
 									</td>
 								</tr>
 								</c:forEach>
-								<tr>
-									<td>5</td>
-									<td>1</td>
-									<td>gym</td>
-									<td>100$</td>
-									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
-									</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -105,6 +112,39 @@
 
 		</div>
 		
+<script>
+function warningBeforeDelete(id) {
+	swal({
+	  title: "Xác nhận xóa",
+	  text: "Bạn có chắc chắn muốn xóa hay không",
+	  type: "warning",
+	  showCancelButton: true,
+	  confirmButtonClass: "btn-success",
+	  cancelButtonClass: "btn-danger",
+	  confirmButtonText: "Xác nhận",
+	  cancelButtonText: "Hủy bỏ",
+	}).then(function(isConfirm) {
+	  if (isConfirm) {
+			
+		  deleteBill(id);
+	  }
+	});
+} 
+function deleteBill(data) {
+$.ajax({
+    url: '${billAPI}',
+    type: 'DELETE',
+    contentType: 'application/json',
+    data: JSON.stringify(data),
+    success: function (result) {
+        window.location.href = "${billURL}?message=delete_success";
+    },
+    error: function (error) {
+    	window.location.href = "${billURL}?message=error_system";
+    }
+});
+}
+</script>		
 
 </body>
 
