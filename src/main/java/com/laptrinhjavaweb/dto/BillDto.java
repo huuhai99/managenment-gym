@@ -23,9 +23,7 @@ public class BillDto extends AbstractDTO<BillDto>{
 	}
 
 	private String note;
-<<<<<<< HEAD
 	private String customerFullName;
-=======
 	private String startDay;
 	private String endDay;
 	
@@ -46,7 +44,6 @@ public class BillDto extends AbstractDTO<BillDto>{
 		this.endDay = endDay;
 	}
 
->>>>>>> 15aeb8740bf440b60feb2cf7c18a8c68f9626125
 	public String getNote() {
 		return note;
 	}

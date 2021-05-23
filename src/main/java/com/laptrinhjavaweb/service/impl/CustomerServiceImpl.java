@@ -23,6 +23,9 @@ public class CustomerServiceImpl implements ICustomerService {
 	private CustomerRepository customerRepository;
 	
 	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
 	private CustomerConverter customerConverter;
 	
 	@Autowired
@@ -59,12 +62,15 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Transactional
 	public CustomerDto save(CustomerDto dto) {
 		CustomerEntity customerEntity = new CustomerEntity();
+		UserEntity userEntity = userRepository.findOne((long) 1);
 		if (dto.getId() != null) {
 			CustomerEntity oldCustomer = customerRepository.findOne(dto.getId());
+			oldCustomer.setEntity(userEntity);
 			customerEntity = customerConverter.toEntity(oldCustomer, dto);
 		} else {
 			customerEntity = customerConverter.toEntity(dto);
 			customerEntity.setStatus((long) 1);
+			customerEntity.setEntity(userEntity);
 		}
 		return customerConverter.toDto(customerRepository.save(customerEntity));
 	}
