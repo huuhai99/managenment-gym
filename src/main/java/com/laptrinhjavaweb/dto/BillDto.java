@@ -6,6 +6,26 @@ public class BillDto extends AbstractDTO<BillDto>{
 	private Long categoryId;
 	private String categoryName;
 	private String note;
+	private String startDay;
+	private String endDay;
+	
+	
+	public String getStartDay() {
+		return startDay;
+	}
+
+	public void setStartDay(String startDay) {
+		this.startDay = startDay;
+	}
+
+	public String getEndDay() {
+		return endDay;
+	}
+
+	public void setEndDay(String endDay) {
+		this.endDay = endDay;
+	}
+
 	public String getNote() {
 		return note;
 	}
