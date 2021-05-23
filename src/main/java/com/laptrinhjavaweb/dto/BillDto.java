@@ -6,6 +6,7 @@ public class BillDto extends AbstractDTO<BillDto>{
 	private Long categoryId;
 	private String categoryName;
 	private String note;
+	private String customerFullName;
 	public String getNote() {
 		return note;
 	}
@@ -61,6 +62,15 @@ public class BillDto extends AbstractDTO<BillDto>{
 	public void setStatus(int status) {
 		this.status = status;
 	}
+
+	public String getCustomerFullName() {
+		return customerFullName;
+	}
+
+	public void setCustomerFullName(String customerFullName) {
+		this.customerFullName = customerFullName;
+	}
+
 
 	
 

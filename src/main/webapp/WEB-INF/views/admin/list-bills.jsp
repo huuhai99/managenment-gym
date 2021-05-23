@@ -94,9 +94,16 @@
 												</button>
 									<c:url var="updateBillURL" value="/them-hoa-don">
 										<c:param name="id" value="${item.id}"/>															
-																</c:url>																
+																</c:url>
+																																
 										<a class="btn btn-sm  btn-edit"  data-toggle="tooltip"
 											title="Cập nhật hóa đơn" href='${updateBillURL}'><i class="fas fa-edit" style="color: green;"></i>
+											</a>
+											<c:url var="updateBillURL" value="/them-xuat-hoa-don">
+										<c:param name="id" value="${item.id}"/>															
+																</c:url>
+											<a class="btn btn-sm  btn-edit"  data-toggle="tooltip"
+											title="Xuất hóa đơn" href='${updateBillURL}'><i class="fas fa-file-export"></i>
 											</a>
 									</td>
 								</tr>

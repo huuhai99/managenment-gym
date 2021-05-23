@@ -75,4 +75,28 @@ public class BillsController {
 		mav.addObject("categories", categoryService.findAll());
 		return mav;
 	}
+	@RequestMapping(value = "/them-xuat-hoa-don", method = RequestMethod.GET)
+	public ModelAndView exportPage(@RequestParam(value = "id", required = false) Long id, HttpServletRequest request){
+		ModelAndView mav = new ModelAndView("admin/export-bill");
+		BillDto model = new BillDto();
+		if (id != null) {
+			model = billService.findById(id);
+		}
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
+		}
+		MyUser myUser = SecurityUtils.getPrincipal();
+		Long idUser ;
+		if (myUser == null) {
+			idUser = null;
+		}else {
+			idUser = myUser.getId();
+		}
+		mav.addObject("userId", idUser);
+		mav.addObject("model", model);
+		mav.addObject("categories", categoryService.findAll());
+		return mav;
+	}
 }

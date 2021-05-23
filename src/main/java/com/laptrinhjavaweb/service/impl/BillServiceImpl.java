@@ -40,7 +40,9 @@ public class BillServiceImpl implements IBillService {
 		List<BillDto> models = new ArrayList<>();
 		List<BillEntity> entities = billRepository.findAll();
 		for (BillEntity item: entities) {
+			CustomerEntity customerEntity = item.getCustomer();
 			BillDto billDTO = billConverter.toDto(item);
+			billDTO.setCustomerFullName(customerEntity.getFullName());
 			models.add(billDTO);
 		}
 		return models;
@@ -61,7 +63,9 @@ public class BillServiceImpl implements IBillService {
 		List<BillDto> models = new ArrayList<>();
 		List<BillEntity> entities = billRepository.findByStatus((long) SystemConstant.ACTIVE_STATUS);
 		for (BillEntity item: entities) {
+			CustomerEntity customerEntity = item.getCustomer();
 			BillDto billDTO = billConverter.toDto(item);
+			billDTO.setCustomerFullName(customerEntity.getFullName());
 			models.add(billDTO);
 		}
 		return models;
