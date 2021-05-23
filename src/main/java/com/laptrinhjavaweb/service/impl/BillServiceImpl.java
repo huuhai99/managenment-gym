@@ -163,4 +163,15 @@ public class BillServiceImpl implements IBillService {
 		int count = billRepository.countByCustomerId(id);
 		return count;
 	}
+
+	@Override
+	public List<BillDto> findByCustomerId(Long id) {
+		List<BillDto> models = new ArrayList<>();
+		List<BillEntity> entities = billRepository.findByCustomerId(id);
+		for (BillEntity item: entities) {
+			BillDto billDTO = billConverter.toDto(item);
+			models.add(billDTO);
+		}
+		return models;
+	}
 }

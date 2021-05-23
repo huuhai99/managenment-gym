@@ -5,6 +5,17 @@ public class BillDto extends AbstractDTO<BillDto>{
 	private Long idCustomer;
 	private Long categoryId;
 	private String categoryName;
+	private String customerName;
+	
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
 	private String note;
 	private String startDay;
 	private String endDay;
