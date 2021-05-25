@@ -182,24 +182,24 @@ var year = today.getFullYear();
 							cellspacing="0">
 							<thead>
 								<tr>
-									<th>Id</th>
-									<th>FullName</th>
-									<th>Sex</th>
-									<th>PhoneNumber</th>
-									<th>Birthday</th>
-									<th>Note</th>
-									<th>Manipulationc</th>
+									<th>Mã</th>
+									<th>Họ và tên</th>
+									<th>Giới tính</th>
+									<th>Số điện thoại</th>
+									<th>Ngày sinh</th>
+									<th>Ghi chú</th>
+									<th>Thao tác</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
-									<th>Id</th>
-									<th>FullName</th>
-									<th>Sex</th>
-									<th>PhoneNumber</th>
-									<th>Birthday</th>
-									<th>Note</th>
-									<th>Manipulationc</th>
+									<th>Mã</th>
+									<th>Họ và tên</th>
+									<th>Giới tính</th>
+									<th>Số điện thoại</th>
+									<th>Ngày sinh</th>
+									<th>Ghi chú</th>
+									<th>Thao tác</th>
 								</tr>
 							</tfoot>
 							<tbody>
@@ -212,8 +212,24 @@ var year = today.getFullYear();
 										<td>${item.birthday}</td> 
 										<td>${item.note}</td> 
 									<td>
-									<i class="fas fa-trash-alt" style="color: red;"></i>
-									<i class="fas fa-edit" style="color: green;"></i>
+									<button id="btnDelete_${item.id}" type="button" onclick="warningBeforeDelete(${item.id})" value="${item.id}"
+														class="dt-button buttons-html5 btn btn-white  btn-bold" data-toggle="tooltip" title='Xóa khách hàng'>
+																<span>
+																	<i class="fas fa-trash-alt" style="color: red;"></i>
+																</span>
+												</button>
+									<c:url var="updateCustomerURL" value="/them-khach-hang">
+										<c:param name="id" value="${item.id}"/>															
+																</c:url>																
+										<a class="btn btn-sm  btn-edit"  data-toggle="tooltip"
+											title="Cập nhật khách hàng" href='${updateCustomerURL}'><i class="fas fa-edit" style="color: green;"></i>
+											</a>
+									<c:url var="infoCustomerURL" value="/thong-tin-khach-hang">
+										<c:param name="id" value="${item.id}"/>															
+																</c:url>																
+										<a class="btn btn-sm  btn-edit"  data-toggle="tooltip"
+											title="thông tin khách hàng" href='${infoCustomerURL}'><i class="fas fa-info" style="color: blue;"></i>
+											</a>
 									</td>
 								</tr>
 								</c:forEach>

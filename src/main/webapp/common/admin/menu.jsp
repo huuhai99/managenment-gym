@@ -10,8 +10,8 @@
 				aria-expanded="false"> <i class="fas fa-fw fa-folder"></i> <span>Quản lí người dùng</span>
 			</a>
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a class="dropdown-item" href="<c:url value='/danh-sach'/>">Danh sách quản lý</a> 
-					<a class="dropdown-item" href="<c:url value='danh-sach'/>">Danh sách nhân viên</a> 
+				<%-- 	<a class="dropdown-item" href="<c:url value='/danh-sach'/>">Danh sách quản lý</a> 
+					<a class="dropdown-item" href="<c:url value='danh-sach'/>">Danh sách nhân viên</a>  --%>
 					<a class="dropdown-item" href="<c:url value='danh-sach'/>">Danh sách khách hàng</a> 
 						
 				</div>

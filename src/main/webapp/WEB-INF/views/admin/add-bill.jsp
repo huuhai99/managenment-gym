@@ -32,13 +32,13 @@
 			<form:form class="form-horizontal" role="form" id="formSubmit" modelAttribute="model">
 				
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">ID Customer</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Mã khách hàng:</label>
 					<div class="col-lg-9">
 					<form:input path="idCustomer" cssClass="col-xs-10 col-sm-5"  />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Category</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Thể loại</label>
 					<div class="col-lg-9">
 					<form:select path="categoryId" id="categoryId">
 							  	 	<form:option value="" label="-- Chọn thể loại --"/>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Money</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Tổng tiền</label>
 					<div class="col-lg-9">
 					<form:input path="money" cssClass="col-xs-10 col-sm-5"  />
 					</div>
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Note</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ghi chú:</label>
 					<div class="col-lg-9">
 					<form:input path="note" cssClass="col-xs-10 col-sm-5"  />
 					</div>
@@ -75,17 +75,15 @@
 					<div class="col-md-offset-3 col-md-9">
 						<c:if test="${not empty model.id}">
 							<button class="btn btn-info" type="button" id="btnAddOrUpdateBill">
-								<i class="ace-icon fa fa-check bigger-110"></i> Cập nhật khách
-								hàng
+								<i class="ace-icon fa fa-check bigger-110"></i> Cập nhật hóa đơn
 							</button>
 						</c:if>
 						<c:if test="${empty model.id}">
 							<button class="btn btn-info" type="button" id="btnAddOrUpdateBill">
-								<i class="ace-icon fa fa-check bigger-110"></i> Thêm khách hàng
+								<i class="ace-icon fa fa-check bigger-110"></i> Thêm hóa đơn
 							</button>
 						</c:if>
 
-						&nbsp; &nbsp; &nbsp;
 						<button class="btn btn-danger" type="reset">
 							<i class="ace-icon fa fa-undo bigger-110"></i> Hủy
 						</button>

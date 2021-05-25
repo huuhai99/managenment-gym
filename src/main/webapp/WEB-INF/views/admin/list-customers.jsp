@@ -62,24 +62,24 @@
 							cellspacing="0">
 							<thead>
 								<tr>
-									<th>Id</th>
-									<th>FullName</th>
-									<th>Sex</th>
-									<th>PhoneNumber</th>
-									<th>Birthday</th>
-									<th>Note</th>
-									<th>Manipulationc</th>
+									<th>Mã</th>
+									<th>Họ và tên</th>
+									<th>Giới tính</th>
+									<th>Số điện thoại</th>
+									<th>Ngày sinh</th>
+									<th>Ghi chú</th>
+									<th>Thao tác</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
-									<th>Id</th>
-									<th>FullName</th>
-									<th>Sex</th>
-									<th>PhoneNumber</th>
-									<th>Birthday</th>
-									<th>Note</th>
-									<th>Manipulationc</th>
+									<th>Mã</th>
+									<th>Họ và tên</th>
+									<th>Giới tính</th>
+									<th>Số điện thoại</th>
+									<th>Ngày sinh</th>
+									<th>Ghi chú</th>
+									<th>Thao tác</th>
 								</tr>
 							</tfoot>
 							<tbody>

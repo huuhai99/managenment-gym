@@ -62,24 +62,24 @@
 							cellspacing="0">
 							<thead>
 								<tr>
-									<th>IdBill</th>
-									<th>IdCustomer</th>
-									<th>Category</th>
-									<th>Money</th>
+									<th>Mã</th>
+									<th>Mã KH</th>
+									<th>Thể loại</th>
+									<th>Tổng tiền</th>
 									<th>Ngày bắt đầu</th>
 									<th>Ngày kết thúc</th>
-									<th>Manipulationc</th>
+									<th>Thao tác</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
-									<th>IdBill</th>
-									<th>IdCustomer</th>
-									<th>Category</th>
-									<th>Money</th>
+									<th>Mã</th>
+									<th>Mã KH</th>
+									<th>Thể loại</th>
+									<th>Tổng tiền</th>
 									<th>Ngày bắt đầu</th>
 									<th>Ngày kết thúc</th>
-									<th>Manipulationc</th>
+									<th>Thao tác</th>
 								</tr>
 							</tfoot>
 							<tbody>
@@ -89,8 +89,8 @@
 										<td>${item.idCustomer}</td>
 										<td>${item.categoryName}</td> 
 										<td>${item.money}$</td> 
-										<td>${item.startDay}$</td> 
-										<td>${item.endDay}$</td> 
+										<td>${item.startDay}</td> 
+										<td>${item.endDay}</td> 
 									<td>
 									<button id="btnDelete_${item.id}" type="button" onclick="warningBeforeDelete(${item.id})" value="${item.id}"
 														class="dt-button buttons-html5 btn btn-white  btn-bold" data-toggle="tooltip" title='Xóa hóa đơn'>

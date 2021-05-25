@@ -138,7 +138,7 @@ public class CustomerServiceImpl implements ICustomerService {
 			models = findByStatusAndDate(y);
 		}
 		for(int i=0;i<models.size();i++) {
-			if(models.get(i).getSex().equals("Male")) {
+			if(models.get(i).getSex().equals("Nam")) {
 				sum++;
 			}
 		}
@@ -164,7 +164,7 @@ public class CustomerServiceImpl implements ICustomerService {
 			models = findByStatusAndDate(y);
 		}
 		for(int i=0;i<models.size();i++) {
-			if(models.get(i).getSex().equals("Female")) {
+			if(models.get(i).getSex().equals("Nữ")) {
 				sum++;
 			}
 		}

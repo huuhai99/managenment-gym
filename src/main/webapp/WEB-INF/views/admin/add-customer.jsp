@@ -30,34 +30,34 @@
 			<form:form class="form-horizontal" role="form" id="formSubmit" modelAttribute="model">
 				
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Full Name</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Họ và tên:</label>
 					<div class="col-lg-9">
 					<form:input path="fullName" cssClass="col-xs-10 col-sm-5"  />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Phone Number</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Số điện thoại:</label>
 					<div class="col-lg-9">
 					<form:input path="numberPhone" cssClass="col-xs-10 col-sm-5"  />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label">Sex</label>
+					<label class="col-lg-3 col-form-label form-control-label">Giới tính:</label>
 					<div class="col-lg-9">
-						<label class="w3-validate">Male</label>
-						<form:radiobutton path = "sex" value = "Male" />
-						<label class="w3-validate">Female</label>
-						<form:radiobutton path = "sex" value = "Female" />
+						<label class="w3-validate">Nam</label>
+						<form:radiobutton path = "sex" value = "Nam" />
+						<label class="w3-validate">Nữ</label>
+						<form:radiobutton path = "sex" value = "Nữ" />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">BirthDay</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ngày sinh:</label>
 					<div class="col-lg-9">
 					<form:input path="birthday" cssClass="col-xs-10 col-sm-5"  />
 					</div>
 				</div>
 				<div class="form-group row">
-					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Note</label>
+					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Ghi chú:</label>
 					<div class="col-lg-9">
 					<form:input path="note" cssClass="col-xs-10 col-sm-5"  />
 					</div>
