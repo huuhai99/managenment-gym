@@ -57,8 +57,8 @@ public class CardController {
 
 	@RequestMapping(value = "/attendance", method = RequestMethod.GET)
 	public ModelAndView addUserPage() {
-		ModelAndView mav = new ModelAndView("admin/calander");
 		
+		ModelAndView mav = new ModelAndView("admin/calander");
 		return mav;
 	}
 	

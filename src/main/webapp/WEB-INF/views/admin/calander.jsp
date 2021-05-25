@@ -51,6 +51,7 @@
             <input type="text" class="form-control" name="title" id="title">
             <span class = "status"></span>
           </div>
+           <input type="hidden" class="form-control" name="customerid" id="customerid" value="">
           <div class="form-group">
             <label>Mô tả</label>
             <input type="text" class=" form-control"  name="description" id="description">
@@ -109,12 +110,12 @@
 		    });
 		  var title = $('#title').val();
 		  if(title !=""){
-			  addingBook(data);
+			  addingAttendance(data);
 		  }else {
 		  }
 		  
 		});
-		function addingBook(data) {
+		function addingAttendance(data) {
 				   $.ajax({
 		            type: "POST",
 		  		    url: "${ApiUrl}",

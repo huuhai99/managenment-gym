@@ -62,7 +62,7 @@
 				<div class="form-group row">
 					<label class="col-lg-3 col-form-label form-control-label" for="form-field-1">Tổng Tiền</label>
 					<div>
-           			 <input type="text" id="money" value="${model.money} VND" disabled="disabled" style="width: 200px;" />
+           			 <input type="text" id="money" value="${model.money} $" disabled="disabled" style="width: 200px;" />
        			 </div>
 				</div>
 				
@@ -72,6 +72,8 @@
            			 <input type="text" id="note" value="${model.note}" disabled="disabled" style="width: 200px;" />
        			 </div>
 				</div>
+				
+				 <input type="hidden" id="createdby" value="Admin" disabled="disabled" style="width: 200px;" />
 				
 				<div style="margin-left: 136px;">
            	 <input type="button" id="bt" value="In Hóa Đơn" onclick="saveFile()" style="width: 125px;" />
@@ -83,6 +85,7 @@
 
 let saveFile = () => {
 	
+	
     // Get the data from each element on the form.
     const title = document.getElementById('title');
 	const name = document.getElementById('nameCustomer');
@@ -91,6 +94,14 @@ let saveFile = () => {
     const endDay = document.getElementById('endDay');
     const money = document.getElementById('money');
     const msg = document.getElementById('note'); 
+    const createdby = document.getElementById('createdby'); 
+    
+    const today = new Date();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1; //January is 0!
+    const yyyy = today.getFullYear();
+
+    const day = mm + '/' + dd + '/' + yyyy;
     
     // This variable stores all the data.
     let data =
@@ -99,11 +110,13 @@ let saveFile = () => {
         'Ngày Bắt Đầu: ' + startDay.value + ' \r\n ' + 
         'Ngày Kết Thúc: ' + endDay.value + ' \r\n ' + 
         'Tổng Tiền: ' + money.value + ' \r\n ' + 
+        'Ngày In Hóa Đơn: ' + day + ' \r\n ' + 
+        'Người Tạo Hóa Đơn: ' + createdby.value + ' \r\n ' + 
         'Ghi chú: ' + msg.value; 
     
     // Convert the text to BLOB.
     const textToBLOB = new Blob([data], { type: 'text/plain' });
-    const sFileName = 'formData.txt';	   // The file to save the data.
+    const sFileName = 'HóaĐơn.txt';	   // The file to save the data.
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;

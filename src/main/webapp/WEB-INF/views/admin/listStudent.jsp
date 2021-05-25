@@ -22,8 +22,7 @@
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">DataTables
-						Example</h6>
+					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Viên</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -46,7 +45,7 @@
 									<td>
 									
 										<a href="<c:url value='/attendance'/>" ><i class="fas fa-user-tag" style="color: red;"></i></a>
-									<a href="<c:url value='/danh-sach-diem-danh/${item.id}'/>" ><i class="fas fa-eye" style="color: green;"></i></a>
+									<%-- <a href="<c:url value='/danh-sach-diem-danh/${item.id}'/>" ><i class="fas fa-eye" style="color: green;"></i></a> --%>
 									</td>
 								</tr>
 								</c:forEach>
