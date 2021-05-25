@@ -20,9 +20,9 @@
 				<i class="fas fa-fw fa-folder"></i>Quản lí hóa đơn</a>
 				</li>
 				
-				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="<c:url value='/danh-sach-the-loai'/>" id="pagesDropdown"> 
+				<%-- <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="<c:url value='/danh-sach-the-loai'/>" id="pagesDropdown"> 
 				<i class="fas fa-fw fa-folder"></i>Quản lí Thể Loại</a>
-				</li>
+				</li> --%>
 				
 				
 			<li class="nav-item"><a class="nav-link" href="<c:url value='/danh-sach-hoc-vien/${userId}'/>">

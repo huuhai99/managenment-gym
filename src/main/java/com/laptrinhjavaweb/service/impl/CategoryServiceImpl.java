@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,17 @@ public class CategoryServiceImpl implements ICategoryService {
 			result.put(item.getId(), item.getName());
 		}
 		return result;
+	}
+
+	@Override
+	public List<CategoryDTO> finAll() {
+		List<CategoryEntity> categoryEntity = categoryRepository.findAll();
+		List<CategoryDTO> dtos = new ArrayList<>();
+		for (CategoryEntity item : categoryEntity) {
+			CategoryDTO categoryDTO = categoryConverter.converterToDTO(item);
+			dtos.add(categoryDTO);
+		}
+		return dtos;
 	}
 
 }

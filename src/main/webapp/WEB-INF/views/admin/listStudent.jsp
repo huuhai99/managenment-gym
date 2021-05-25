@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="com.laptrinhjavaweb.util.SecurityUtils" %>
 	<%@include file="/common/taglib.jsp"%>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@
 		
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
+			<c:if test=""></c:if>
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold text-primary">Danh Sách Học Viên</h6>
 				</div>
