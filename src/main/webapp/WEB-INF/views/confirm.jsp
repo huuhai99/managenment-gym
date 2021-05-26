@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-	<h1>Email đã xác nhận thành công
+	<h1>Email đã xác nhận thành công. Mời bạn
 	<a href="<c:url value='/login'/>">Đăng Nhập</a>
 	</h1>
 	</div>

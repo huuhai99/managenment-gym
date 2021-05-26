@@ -181,7 +181,7 @@ public class HomeController {
 	
 	// UUID(Universally Unique IDentifier)
 	@RequestMapping(value = "/register" , method = {RequestMethod.POST} )
-	public ModelAndView  register( @RequestBody UserEntity entity , ModelAndView mav) {
+	public ModelAndView  register( UserEntity entity , ModelAndView mav) {
 	
 		entity.setPassword(bCyptPass.encode(entity.getPassword()));
 		entity.setStatus(SystemConstant.INACTIVE_STATUS);

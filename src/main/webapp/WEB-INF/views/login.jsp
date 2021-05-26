@@ -116,7 +116,7 @@
 									<!-- End .form-group -->
 
 									<div class="form-footer">
-										<button type="submit" id="createUser"
+										<button type="submit"
 											class="btn btn-outline-primary-2">
 											<span>Đăng ký</span> <i class="icon-long-arrow-right"></i>
 										</button>
@@ -133,45 +133,6 @@
         
         
    <script>
-   $('#createUser').click(
-			function(e) {
-				e.preventDefault();
-				var data = {};
-				var formData = $('#formRegister').serializeArray();
-				$.each(formData, function(index, v) {
-					data["" + v.name + ""] = v.value;
-				});
-				var fullName = $('#fullName').val();
-				var userName = $('#userName').val();
-				var password = $('#password').val();
-				var email = $('#email').val();
-				var phoneNumber = $('#phoneNumber').val();
-				var address = $('#address').val();
-				var repeatPass = $('#repeatPass').val();
-				if (fullName != "" && userName != "" && password != ""
-						&& email != "" && phoneNumber != "" && address != ""
-						&& repeatPass != "") {
-					addingUser(data);
-				} else {
-					swal(" Đăng ký thất bại", " :)", "error");
-				}
-			});
-			
-			function addingUser(data) {
-				$.ajax({
-					type : "POST",
-					url : "${ApiUrl}",
-					data : JSON.stringify(data),
-					dataType : "json",
-					contentType : "application/json",
-					success : function(response) {
-						swal("Tài khoản đã được kích hoạt!", "Bạn hãy kiểm tra email để xác nhận", "success");
-					},
-					error : function(response) {
-						swal("Tài khoản đã được kích hoạt!", "Bạn hãy kiểm tra email để xác nhận", "success");
-					}
-				});
-			}
    
 	$(document).ready(function() {
 						 $("#userName").blur(function userNameExists() {
