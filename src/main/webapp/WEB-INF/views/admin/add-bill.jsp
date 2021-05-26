@@ -25,7 +25,13 @@
 				<div class="alert alert-${alert}">${message}</div>
 			</c:if>
 			<br>
-			<h2>Thêm Hóa đơn</h2>
+			<c:if test="${not empty model.id}">
+				<h2>Cập Nhật Hóa Đơn</h2>
+
+			</c:if>
+			<c:if test="${empty model.id}">
+				<h2>Thêm Khách Hóa Đơn</h2>
+			</c:if>
 			<br>
 		</div>
 		<div class="col-lg-8 push-lg-4 personal-info">

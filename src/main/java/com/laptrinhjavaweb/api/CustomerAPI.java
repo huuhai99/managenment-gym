@@ -22,12 +22,12 @@ public class CustomerAPI {
 	}
 	
 	@PutMapping("/api/customer")
-	public CustomerDto updateNew(@RequestBody CustomerDto updateCustomer) {
+	public CustomerDto updateCustomer(@RequestBody CustomerDto updateCustomer) {
 		return customerService.save(updateCustomer);
 	}
 	
 	@DeleteMapping("/api/customer")
-	public void deleteNew(@RequestBody long id) {
+	public void deleteCustomer(@RequestBody long id) {
 		customerService.delete(id);
 	}
 }
