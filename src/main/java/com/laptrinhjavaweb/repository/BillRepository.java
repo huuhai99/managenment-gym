@@ -12,6 +12,7 @@ import com.laptrinhjavaweb.entity.BillEntity;
 public interface BillRepository extends JpaRepository<BillEntity, Long> {
 	List<BillEntity> findByStatus(Long status);
 	List<BillEntity> findByCustomerId(Long id);
+	List<BillEntity> findByCustomerIdAndStatus(Long id, Long status);
 	@Query(value = "SELECT * FROM  bill  WHERE bill.status=?1 and year(bill.createddate)=?2"
 			,nativeQuery = true)
 	List<BillEntity> findByStatusAndDate(Long status, Long year);

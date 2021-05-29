@@ -95,7 +95,7 @@ public class CustomersController {
 		List<BillDto> listBill = new ArrayList<BillDto>();
 		if (id != null) {
 			model = customerService.findById(id);
-			listBill = billService.findByCustomerId(id);
+			listBill = billService.findByCustomerIdAndStatus(id, (long) 1);
 		}
 		MyUser myUser = SecurityUtils.getPrincipal();
 		Long idUser ;
